@@ -1,0 +1,34 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1712285643342,
+      "tag": "0000_steep_amazoness",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1712772115710,
+      "tag": "0001_wild_human_robot",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1712772804286,
+      "tag": "0002_whole_supreme_intelligence",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1712775854340,
+      "tag": "0003_futuristic_magdalene",
+      "breakpoints": true
+    }
+  ]
+}

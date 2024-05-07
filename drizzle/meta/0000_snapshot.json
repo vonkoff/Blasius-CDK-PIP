@@ -1,0 +1,3834 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "alembic_version": {
+      "name": "alembic_version",
+      "schema": "",
+      "columns": {
+        "version_num": {
+          "name": "version_num",
+          "type": "varchar(32)",
+          "primaryKey": true,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "raw_xml_data": {
+      "name": "raw_xml_data",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "xml_content": {
+          "name": "xml_content",
+          "type": "xml",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "processed": {
+          "name": "processed",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "deal_initialfee": {
+      "name": "deal_initialfee",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "InitialFee4ProfitType": {
+          "name": "InitialFee4ProfitType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_initialfee_pkey": {
+          "name": "deal_initialfee_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deal_tradedealerdefined": {
+      "name": "deal_tradedealerdefined",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "TradeDealerDefined1": {
+          "name": "TradeDealerDefined1",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined2": {
+          "name": "TradeDealerDefined2",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined3": {
+          "name": "TradeDealerDefined3",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined4": {
+          "name": "TradeDealerDefined4",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined5": {
+          "name": "TradeDealerDefined5",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined6": {
+          "name": "TradeDealerDefined6",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined7": {
+          "name": "TradeDealerDefined7",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined8": {
+          "name": "TradeDealerDefined8",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_tradedealerdefined_pkey": {
+          "name": "deal_tradedealerdefined_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deal_trade2": {
+      "name": "deal_trade2",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Trade2ACV": {
+          "name": "Trade2ACV",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Color": {
+          "name": "Trade2Color",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Gross": {
+          "name": "Trade2Gross",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Make": {
+          "name": "Trade2Make",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Mileage": {
+          "name": "Trade2Mileage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Model": {
+          "name": "Trade2Model",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2ModelName": {
+          "name": "Trade2ModelName",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2ModelNo": {
+          "name": "Trade2ModelNo",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2ModelType": {
+          "name": "Trade2ModelType",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Over": {
+          "name": "Trade2Over",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2PayOff": {
+          "name": "Trade2PayOff",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Stock": {
+          "name": "Trade2Stock",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Style": {
+          "name": "Trade2Style",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2VIN": {
+          "name": "Trade2VIN",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Year": {
+          "name": "Trade2Year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_trade2_pkey": {
+          "name": "deal_trade2_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deal_trade1": {
+      "name": "deal_trade1",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Trade1Model": {
+          "name": "Trade1Model",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1ModelName": {
+          "name": "Trade1ModelName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1ModelNo": {
+          "name": "Trade1ModelNo",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1ModelType": {
+          "name": "Trade1ModelType",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Over": {
+          "name": "Trade1Over",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1PayOff": {
+          "name": "Trade1PayOff",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Stock": {
+          "name": "Trade1Stock",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Style": {
+          "name": "Trade1Style",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1VIN": {
+          "name": "Trade1VIN",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Year": {
+          "name": "Trade1Year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1ACV": {
+          "name": "Trade1ACV",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Color": {
+          "name": "Trade1Color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Gross": {
+          "name": "Trade1Gross",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Make": {
+          "name": "Trade1Make",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1MakeName": {
+          "name": "Trade1MakeName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Mileage": {
+          "name": "Trade1Mileage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_trade1_pkey": {
+          "name": "deal_trade1_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deal_fiaux": {
+      "name": "deal_fiaux",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "FiAux1": {
+          "name": "FiAux1",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "FiAux40": {
+          "name": "FiAux40",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux41": {
+          "name": "FiAux41",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux42": {
+          "name": "FiAux42",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux43": {
+          "name": "FiAux43",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux44": {
+          "name": "FiAux44",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux45": {
+          "name": "FiAux45",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux46": {
+          "name": "FiAux46",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux47": {
+          "name": "FiAux47",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux48": {
+          "name": "FiAux48",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux49": {
+          "name": "FiAux49",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux5": {
+          "name": "FiAux5",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux50": {
+          "name": "FiAux50",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux6": {
+          "name": "FiAux6",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux7": {
+          "name": "FiAux7",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux8": {
+          "name": "FiAux8",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux9": {
+          "name": "FiAux9",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux10": {
+          "name": "FiAux10",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux11": {
+          "name": "FiAux11",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux12": {
+          "name": "FiAux12",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux13": {
+          "name": "FiAux13",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "FiAux14": {
+          "name": "FiAux14",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_fiaux_pkey": {
+          "name": "deal_fiaux_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "customers": {
+      "name": "customers",
+      "schema": "",
+      "columns": {
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(40)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "CustNo": {
+          "name": "CustNo",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ErrorLevel": {
+          "name": "ErrorLevel",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "NameCode": {
+          "name": "NameCode",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "DateAdded": {
+          "name": "DateAdded",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "BlockEMail": {
+          "name": "BlockEMail",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "BlockMail": {
+          "name": "BlockMail",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "BlockPhone": {
+          "name": "BlockPhone",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Mailability": {
+          "name": "Mailability",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NameBalances1": {
+          "name": "NameBalances1",
+          "type": "numeric(15, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Address": {
+          "name": "Address",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddressSecondLine": {
+          "name": "AddressSecondLine",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BusinessPhone": {
+          "name": "BusinessPhone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BusinessPhoneExt": {
+          "name": "BusinessPhoneExt",
+          "type": "varchar(7)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Cellular": {
+          "name": "Cellular",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "City": {
+          "name": "City",
+          "type": "varchar(35)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ContactMethod": {
+          "name": "ContactMethod",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Country": {
+          "name": "Country",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "County": {
+          "name": "County",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DriverLicenseStOrProv": {
+          "name": "DriverLicenseStOrProv",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email": {
+          "name": "Email",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "EmailDesc": {
+          "name": "EmailDesc",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "EmailDesc2": {
+          "name": "EmailDesc2",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "EmailDesc3": {
+          "name": "EmailDesc3",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Employer": {
+          "name": "Employer",
+          "type": "varchar(32)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ErrorMessage": {
+          "name": "ErrorMessage",
+          "type": "varchar(80)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FirstName": {
+          "name": "FirstName",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "HomeFax": {
+          "name": "HomeFax",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Telephone": {
+          "name": "Telephone",
+          "type": "varchar(12)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Language": {
+          "name": "Language",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LastName": {
+          "name": "LastName",
+          "type": "varchar(40)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MiddleName": {
+          "name": "MiddleName",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name1": {
+          "name": "Name1",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name2Company": {
+          "name": "Name2Company",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NameCompany": {
+          "name": "NameCompany",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Pager": {
+          "name": "Pager",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PartsCounterCode": {
+          "name": "PartsCounterCode",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PartsFlag": {
+          "name": "PartsFlag",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PartsType": {
+          "name": "PartsType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PreferredContactDay": {
+          "name": "PreferredContactDay",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PreferredContactMethod": {
+          "name": "PreferredContactMethod",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PreferredContactTime": {
+          "name": "PreferredContactTime",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SaleType": {
+          "name": "SaleType",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SecondaryHomePhone": {
+          "name": "SecondaryHomePhone",
+          "type": "varchar(12)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "State": {
+          "name": "State",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TaxCode": {
+          "name": "TaxCode",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Title1": {
+          "name": "Title1",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ZipOrPostalCode": {
+          "name": "ZipOrPostalCode",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "HomePhone": {
+          "name": "HomePhone",
+          "type": "varchar(12)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PreferredLanguage": {
+          "name": "PreferredLanguage",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Comment": {
+          "name": "Comment",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CommentDate": {
+          "name": "CommentDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DriverLicenseExpDate": {
+          "name": "DriverLicenseExpDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email2": {
+          "name": "Email2",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email3": {
+          "name": "Email3",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LastUpdated": {
+          "name": "LastUpdated",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Gender": {
+          "name": "Gender",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CreditLimit": {
+          "name": "CreditLimit",
+          "type": "numeric(15, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CurrentDue": {
+          "name": "CurrentDue",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Over30Due": {
+          "name": "Over30Due",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Over60Due": {
+          "name": "Over60Due",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Over90Due": {
+          "name": "Over90Due",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Over120Due": {
+          "name": "Over120Due",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SpecInstructions2": {
+          "name": "SpecInstructions2",
+          "type": "varchar(60)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SpecInstructions3": {
+          "name": "SpecInstructions3",
+          "type": "varchar(60)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SpecInstructions4": {
+          "name": "SpecInstructions4",
+          "type": "varchar(60)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SpecInstructions5": {
+          "name": "SpecInstructions5",
+          "type": "varchar(60)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsAgency": {
+          "name": "InsAgency",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsAgentAddress1": {
+          "name": "InsAgentAddress1",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsAgentAddress2": {
+          "name": "InsAgentAddress2",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsAgentCity": {
+          "name": "InsAgentCity",
+          "type": "varchar(35)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsAgentPhone": {
+          "name": "InsAgentPhone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsAgentState": {
+          "name": "InsAgentState",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsAgentZipOrPostalCode": {
+          "name": "InsAgentZipOrPostalCode",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsCompanyAddress1": {
+          "name": "InsCompanyAddress1",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsCompanyAddress2": {
+          "name": "InsCompanyAddress2",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsCompanyCity": {
+          "name": "InsCompanyCity",
+          "type": "varchar(35)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsCompanyPhone": {
+          "name": "InsCompanyPhone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsCompanyState": {
+          "name": "InsCompanyState",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsCompanyZipOrPostalCode": {
+          "name": "InsCompanyZipOrPostalCode",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsPolicyExpDate": {
+          "name": "InsPolicyExpDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsVerifiedBy": {
+          "name": "InsVerifiedBy",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsVerifiedDate": {
+          "name": "InsVerifiedDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsPolicyNo": {
+          "name": "InsPolicyNo",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ServiceCustomer": {
+          "name": "ServiceCustomer",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TextMessagePhone": {
+          "name": "TextMessagePhone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TextMessageCarrier": {
+          "name": "TextMessageCarrier",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name2First": {
+          "name": "Name2First",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name2Last": {
+          "name": "Name2Last",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name2Middle": {
+          "name": "Name2Middle",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name2Suffix": {
+          "name": "Name2Suffix",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name2Title": {
+          "name": "Name2Title",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NameSuffix": {
+          "name": "NameSuffix",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NameTitle": {
+          "name": "NameTitle",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsAgent": {
+          "name": "InsAgent",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsCompany": {
+          "name": "InsCompany",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SpecInstructions": {
+          "name": "SpecInstructions",
+          "type": "varchar(40)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DeleteDataFlag": {
+          "name": "DeleteDataFlag",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "OptOutFlag": {
+          "name": "OptOutFlag",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "OptOutDate": {
+          "name": "OptOutDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "OptOutTime": {
+          "name": "OptOutTime",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DeleteDataDate": {
+          "name": "DeleteDataDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DeleteDataTime": {
+          "name": "DeleteDataTime",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "customers_pkey": {
+          "name": "customers_pkey",
+          "columns": [
+            "HostItemID",
+            "CustNo"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deals": {
+      "name": "deals",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "State": {
+          "name": "State",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Make": {
+          "name": "Make",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MakeName": {
+          "name": "MakeName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MileageExpected": {
+          "name": "MileageExpected",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MileagePenaltyRate": {
+          "name": "MileagePenaltyRate",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "StockNo": {
+          "name": "StockNo",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Tax": {
+          "name": "Tax",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax1Name": {
+          "name": "Tax1Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax1Rate": {
+          "name": "Tax1Rate",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax1Base": {
+          "name": "Tax1Base",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax1Amount": {
+          "name": "Tax1Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBITerm": {
+          "name": "MBITerm",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MSRP": {
+          "name": "MSRP",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MbiPolicyNo": {
+          "name": "MbiPolicyNo",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MileagePenaltyAmount": {
+          "name": "MileagePenaltyAmount",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SurplusCash": {
+          "name": "SurplusCash",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax2Amount": {
+          "name": "Tax2Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax2Name": {
+          "name": "Tax2Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax2Rate": {
+          "name": "Tax2Rate",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax3Amount": {
+          "name": "Tax3Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax3Name": {
+          "name": "Tax3Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax3Rate": {
+          "name": "Tax3Rate",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax4Amount": {
+          "name": "Tax4Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax4Name": {
+          "name": "Tax4Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Tax4Rate": {
+          "name": "Tax4Rate",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "USLuxuryExciseTaxAmount": {
+          "name": "USLuxuryExciseTaxAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption3Amount": {
+          "name": "FeeOption3Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption3Cost": {
+          "name": "FeeOption3Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption3Name": {
+          "name": "FeeOption3Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption3ProfitType": {
+          "name": "FeeOption3ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption4Amount": {
+          "name": "FeeOption4Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption4Cost": {
+          "name": "FeeOption4Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption4Name": {
+          "name": "FeeOption4Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption4ProfitType": {
+          "name": "FeeOption4ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption5Amount": {
+          "name": "FeeOption5Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption5Cost": {
+          "name": "FeeOption5Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption5Name": {
+          "name": "FeeOption5Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption5ProfitType": {
+          "name": "FeeOption5ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption6Amount": {
+          "name": "FeeOption6Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption6Cost": {
+          "name": "FeeOption6Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption6Name": {
+          "name": "FeeOption6Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption6ProfitType": {
+          "name": "FeeOption6ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption7Amount": {
+          "name": "FeeOption7Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption7Cost": {
+          "name": "FeeOption7Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption7Name": {
+          "name": "FeeOption7Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption7ProfitType": {
+          "name": "FeeOption7ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption8Amount": {
+          "name": "FeeOption8Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption8Cost": {
+          "name": "FeeOption8Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption8Name": {
+          "name": "FeeOption8Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption8ProfitType": {
+          "name": "FeeOption8ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption9Amount": {
+          "name": "FeeOption9Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption9Cost": {
+          "name": "FeeOption9Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption9Name": {
+          "name": "FeeOption9Name",
+          "type": "varchar(18)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption9ProfitType": {
+          "name": "FeeOption9ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee4ProfitType": {
+          "name": "InitialFee4ProfitType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee5Amount": {
+          "name": "InitialFee5Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee5CostAmount": {
+          "name": "InitialFee5CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee5Name": {
+          "name": "InitialFee5Name",
+          "type": "varchar(21)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee5ProfitType": {
+          "name": "InitialFee5ProfitType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee6Amount": {
+          "name": "InitialFee6Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee6CostAmount": {
+          "name": "InitialFee6CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee6Name": {
+          "name": "InitialFee6Name",
+          "type": "varchar(21)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee6ProfitType": {
+          "name": "InitialFee6ProfitType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee7Amount": {
+          "name": "InitialFee7Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee7CostAmount": {
+          "name": "InitialFee7CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee7Name": {
+          "name": "InitialFee7Name",
+          "type": "varchar(21)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee7ProfitType": {
+          "name": "InitialFee7ProfitType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee8Amount": {
+          "name": "InitialFee8Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee8CostAmount": {
+          "name": "InitialFee8CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee8Name": {
+          "name": "InitialFee8Name",
+          "type": "varchar(21)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee8ProfitType": {
+          "name": "InitialFee8ProfitType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee9Amount": {
+          "name": "InitialFee9Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee9CostAmount": {
+          "name": "InitialFee9CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee9Name": {
+          "name": "InitialFee9Name",
+          "type": "varchar(21)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitialFee9ProfitType": {
+          "name": "InitialFee9ProfitType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins1Cost": {
+          "name": "Ins1Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins1Fee": {
+          "name": "Ins1Fee",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins1Income": {
+          "name": "Ins1Income",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins2Cost": {
+          "name": "Ins2Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins2Fee": {
+          "name": "Ins2Fee",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins2Income": {
+          "name": "Ins2Income",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins3Cost": {
+          "name": "Ins3Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins3Fee": {
+          "name": "Ins3Fee",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Ins3Income": {
+          "name": "Ins3Income",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance1Deductible": {
+          "name": "Insurance1Deductible",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance1Limit": {
+          "name": "Insurance1Limit",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance1LimitMiles": {
+          "name": "Insurance1LimitMiles",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance1Name": {
+          "name": "Insurance1Name",
+          "type": "varchar(21)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BalloonRate": {
+          "name": "BalloonRate",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "OnePayAmount": {
+          "name": "OnePayAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FinInstituteCode": {
+          "name": "FinInstituteCode",
+          "type": "varchar(12)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FinanceAmt": {
+          "name": "FinanceAmt",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FinanceCharge": {
+          "name": "FinanceCharge",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FinanceSource": {
+          "name": "FinanceSource",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FirstPayDate": {
+          "name": "FirstPayDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BackGross": {
+          "name": "BackGross",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BackWeOwes": {
+          "name": "BackWeOwes",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BalloonAmount": {
+          "name": "BalloonAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BankFee": {
+          "name": "BankFee",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BaseResidual": {
+          "name": "BaseResidual",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BillingClerk": {
+          "name": "BillingClerk",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BodyStyle": {
+          "name": "BodyStyle",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BonusSP1": {
+          "name": "BonusSP1",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BonusSP2": {
+          "name": "BonusSP2",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BonusSP3": {
+          "name": "BonusSP3",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BusinessPhone": {
+          "name": "BusinessPhone",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BuyRateAPR": {
+          "name": "BuyRateAPR",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BuyRateAddOn": {
+          "name": "BuyRateAddOn",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BuyRateLFM": {
+          "name": "BuyRateLFM",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BuyRateLMF": {
+          "name": "BuyRateLMF",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CLCost": {
+          "name": "CLCost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CLIncome": {
+          "name": "CLIncome",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CLPremium": {
+          "name": "CLPremium",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMClosingMgrId": {
+          "name": "CRMClosingMgrId",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMClosingMgrName": {
+          "name": "CRMClosingMgrName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMCommisionClosingMgr": {
+          "name": "CRMCommisionClosingMgr",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMCommisionFIMgr": {
+          "name": "CRMCommisionFIMgr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMCommisionSP1": {
+          "name": "CRMCommisionSP1",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMCommisionSP2": {
+          "name": "CRMCommisionSP2",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMCommisionSP3": {
+          "name": "CRMCommisionSP3",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMCommisionSalesMgr": {
+          "name": "CRMCommisionSalesMgr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMCommisionTotal": {
+          "name": "CRMCommisionTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMFIMgrId": {
+          "name": "CRMFIMgrId",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMFIMgrName": {
+          "name": "CRMFIMgrName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMFlag": {
+          "name": "CRMFlag",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "VIN": {
+          "name": "VIN",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "VehInventoryCompany": {
+          "name": "VehInventoryCompany",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "VehSaleCompany": {
+          "name": "VehSaleCompany",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "VehicleMileage": {
+          "name": "VehicleMileage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WAQNumber": {
+          "name": "WAQNumber",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WarrantyFee": {
+          "name": "WarrantyFee",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WeOweBackSaleTotal": {
+          "name": "WeOweBackSaleTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WeOweCostTotal": {
+          "name": "WeOweCostTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WeOweFrontGrossSales": {
+          "name": "WeOweFrontGrossSales",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WeOweResidualTableTotal": {
+          "name": "WeOweResidualTableTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WeOweResidualTotal": {
+          "name": "WeOweResidualTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WeOweSaleHardTotal": {
+          "name": "WeOweSaleHardTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WeOweSaleSoftTotal": {
+          "name": "WeOweSaleSoftTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WeOweSaleTotal": {
+          "name": "WeOweSaleTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Year": {
+          "name": "Year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ZipOrPostalCode": {
+          "name": "ZipOrPostalCode",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SecurityDepositAmount": {
+          "name": "SecurityDepositAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SellRateAPR": {
+          "name": "SellRateAPR",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SellRateAddOn": {
+          "name": "SellRateAddOn",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SellRateLMF": {
+          "name": "SellRateLMF",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ServiceTaxAmount": {
+          "name": "ServiceTaxAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LeaseEndPercentageRate": {
+          "name": "LeaseEndPercentageRate",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LeaseEndValue": {
+          "name": "LeaseEndValue",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LeaseMileageAllowance": {
+          "name": "LeaseMileageAllowance",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LeasePayment": {
+          "name": "LeasePayment",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LeaseType": {
+          "name": "LeaseType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LevelizedLifeAmount": {
+          "name": "LevelizedLifeAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LevelizedLifeDealerComm": {
+          "name": "LevelizedLifeDealerComm",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LevelizedLifeIncome": {
+          "name": "LevelizedLifeIncome",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LienHolderAddress": {
+          "name": "LienHolderAddress",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LienHolderCity": {
+          "name": "LienHolderCity",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LienHolderName": {
+          "name": "LienHolderName",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LienHolderName2": {
+          "name": "LienHolderName2",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LienHolderPhone": {
+          "name": "LienHolderPhone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LienHolderState": {
+          "name": "LienHolderState",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LienHolderZip": {
+          "name": "LienHolderZip",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee4ProfitType": {
+          "name": "AddToCapCostFee4ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee5Amount": {
+          "name": "AddToCapCostFee5Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee5CostAmount": {
+          "name": "AddToCapCostFee5CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee5Name": {
+          "name": "AddToCapCostFee5Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee5ProfitType": {
+          "name": "AddToCapCostFee5ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee6Amount": {
+          "name": "AddToCapCostFee6Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee6CostAmount": {
+          "name": "AddToCapCostFee6CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee6Name": {
+          "name": "AddToCapCostFee6Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee6ProfitType": {
+          "name": "AddToCapCostFee6ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee7Amount": {
+          "name": "AddToCapCostFee7Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee7CostAmount": {
+          "name": "AddToCapCostFee7CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee7Name": {
+          "name": "AddToCapCostFee7Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee7ProfitType": {
+          "name": "AddToCapCostFee7ProfitType",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Address": {
+          "name": "Address",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AdjustedCapCost": {
+          "name": "AdjustedCapCost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AdjustedCostofVehicle": {
+          "name": "AdjustedCostofVehicle",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AdjustmentsDealerDefined": {
+          "name": "AdjustmentsDealerDefined",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AdjustmentsROPO": {
+          "name": "AdjustmentsROPO",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AdjustmentsStandard": {
+          "name": "AdjustmentsStandard",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Age": {
+          "name": "Age",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AmountDueAtStart": {
+          "name": "AmountDueAtStart",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee1Amount": {
+          "name": "AnnualFee1Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee1Name": {
+          "name": "AnnualFee1Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee2Amount": {
+          "name": "AnnualFee2Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee2Name": {
+          "name": "AnnualFee2Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee3Amount": {
+          "name": "AnnualFee3Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee3Name": {
+          "name": "AnnualFee3Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee3DealerCommBase": {
+          "name": "AnnualFee3DealerCommBase",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee4Amount": {
+          "name": "AnnualFee4Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee4Name": {
+          "name": "AnnualFee4Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee4DealerCommBase": {
+          "name": "AnnualFee4DealerCommBase",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee5Amount": {
+          "name": "AnnualFee5Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee5Name": {
+          "name": "AnnualFee5Name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AnnualFee5DealerCommBase": {
+          "name": "AnnualFee5DealerCommBase",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AssnSlsperson": {
+          "name": "AssnSlsperson",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance1Term": {
+          "name": "Insurance1Term",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance2Deductible": {
+          "name": "Insurance2Deductible",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance2Limit": {
+          "name": "Insurance2Limit",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance2LimitMiles": {
+          "name": "Insurance2LimitMiles",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance2Name": {
+          "name": "Insurance2Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance2Term": {
+          "name": "Insurance2Term",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance3Deductible": {
+          "name": "Insurance3Deductible",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance3Limit": {
+          "name": "Insurance3Limit",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance3LimitMiles": {
+          "name": "Insurance3LimitMiles",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance3Name": {
+          "name": "Insurance3Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Insurance3Term": {
+          "name": "Insurance3Term",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsuranceCommDlr": {
+          "name": "InsuranceCommDlr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InsuranceTypeCode": {
+          "name": "InsuranceTypeCode",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LSTGSTAmount": {
+          "name": "LSTGSTAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LSTGSTRate": {
+          "name": "LSTGSTRate",
+          "type": "numeric(5, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LSTGSTRateFlat": {
+          "name": "LSTGSTRateFlat",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LastPayAmount": {
+          "name": "LastPayAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LastPayDate": {
+          "name": "LastPayDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "OutTheDoorPrice": {
+          "name": "OutTheDoorPrice",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PaymentAmt": {
+          "name": "PaymentAmt",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PaymentCode": {
+          "name": "PaymentCode",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PaymentStyle": {
+          "name": "PaymentStyle",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Payments": {
+          "name": "Payments",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PickupDate1": {
+          "name": "PickupDate1",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PickupDate2": {
+          "name": "PickupDate2",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PickupDate3": {
+          "name": "PickupDate3",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PickupPay1": {
+          "name": "PickupPay1",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PickupPay2": {
+          "name": "PickupPay2",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PickupPay3": {
+          "name": "PickupPay3",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ExtWarrantyExpMilesLease": {
+          "name": "ExtWarrantyExpMilesLease",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ExtWarrantyTermLease": {
+          "name": "ExtWarrantyTermLease",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FIDealType": {
+          "name": "FIDealType",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FIIncome": {
+          "name": "FIIncome",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FIMgr1": {
+          "name": "FIMgr1",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FIMgr2": {
+          "name": "FIMgr2",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption10Amount": {
+          "name": "FeeOption10Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption10Cost": {
+          "name": "FeeOption10Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption10Name": {
+          "name": "FeeOption10Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption10ProfitType": {
+          "name": "FeeOption10ProfitType",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption1Amount": {
+          "name": "FeeOption1Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption1Cost": {
+          "name": "FeeOption1Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption1Name": {
+          "name": "FeeOption1Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption1ProfitType": {
+          "name": "FeeOption1ProfitType",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption2Amount": {
+          "name": "FeeOption2Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption2Cost": {
+          "name": "FeeOption2Cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption2Name": {
+          "name": "FeeOption2Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FeeOption2ProfitType": {
+          "name": "FeeOption2ProfitType",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "RebateAmount": {
+          "name": "RebateAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SLSDealType": {
+          "name": "SLSDealType",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SaleCreditSP1": {
+          "name": "SaleCreditSP1",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SaleCreditSP2": {
+          "name": "SaleCreditSP2",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SaleCreditSP3": {
+          "name": "SaleCreditSP3",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SalePriceWithWeOwes": {
+          "name": "SalePriceWithWeOwes",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SaleType": {
+          "name": "SaleType",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SalesAccount": {
+          "name": "SalesAccount",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SalesDate": {
+          "name": "SalesDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SalesManagementDealType": {
+          "name": "SalesManagementDealType",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SalesMgr": {
+          "name": "SalesMgr",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Salesperson1": {
+          "name": "Salesperson1",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Salesperson2": {
+          "name": "Salesperson2",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Salesperson3": {
+          "name": "Salesperson3",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSP1Id": {
+          "name": "CRMSP1Id",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSP1Name": {
+          "name": "CRMSP1Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSP2Id": {
+          "name": "CRMSP2Id",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSP2Name": {
+          "name": "CRMSP2Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSP3Id": {
+          "name": "CRMSP3Id",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSP3Name": {
+          "name": "CRMSP3Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSaleCreditClosingMgr": {
+          "name": "CRMSaleCreditClosingMgr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSaleCreditFIMgr": {
+          "name": "CRMSaleCreditFIMgr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSaleCreditSP1": {
+          "name": "CRMSaleCreditSP1",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSaleCreditSP2": {
+          "name": "CRMSaleCreditSP2",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSaleCreditSP3": {
+          "name": "CRMSaleCreditSP3",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSaleCreditSalesMgr": {
+          "name": "CRMSaleCreditSalesMgr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSaleType": {
+          "name": "CRMSaleType",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSalesCreditTotal": {
+          "name": "CRMSalesCreditTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSalesMgrId": {
+          "name": "CRMSalesMgrId",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSalesMgrName": {
+          "name": "CRMSalesMgrName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSpiffClosingMgr": {
+          "name": "CRMSpiffClosingMgr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSpiffFIMgr": {
+          "name": "CRMSpiffFIMgr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSpiffSP1": {
+          "name": "CRMSpiffSP1",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSpiffSP2": {
+          "name": "CRMSpiffSP2",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSpiffSP3": {
+          "name": "CRMSpiffSP3",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSpiffSalesMgr": {
+          "name": "CRMSpiffSalesMgr",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CRMSpiffTotal": {
+          "name": "CRMSpiffTotal",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CalcMethod": {
+          "name": "CalcMethod",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CashCapReduction": {
+          "name": "CashCapReduction",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CashDown": {
+          "name": "CashDown",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CashPrice": {
+          "name": "CashPrice",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "City": {
+          "name": "City",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ClosingMgr": {
+          "name": "ClosingMgr",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoAddress": {
+          "name": "CoAddress",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoBusinessPhone": {
+          "name": "CoBusinessPhone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoBuyer": {
+          "name": "CoBuyer",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoCity": {
+          "name": "CoCity",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoCounty": {
+          "name": "CoCounty",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoCustNo": {
+          "name": "CoCustNo",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoHomePhone": {
+          "name": "CoHomePhone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoName1": {
+          "name": "CoName1",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoState": {
+          "name": "CoState",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CoZipOrPostalCode": {
+          "name": "CoZipOrPostalCode",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DealerDefined6": {
+          "name": "DealerDefined6",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DealerDefined7": {
+          "name": "DealerDefined7",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DealerDefined8": {
+          "name": "DealerDefined8",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DeliveryCoord": {
+          "name": "DeliveryCoord",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DepositAmount": {
+          "name": "DepositAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DepositType": {
+          "name": "DepositType",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DueOnDelivery": {
+          "name": "DueOnDelivery",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FrontEndGrossProfit": {
+          "name": "FrontEndGrossProfit",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FrontGross": {
+          "name": "FrontGross",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FrontWeOwes": {
+          "name": "FrontWeOwes",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FrontWeOwesGrossCost": {
+          "name": "FrontWeOwesGrossCost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FrontWeOwesGrossSales": {
+          "name": "FrontWeOwesGrossSales",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "GLVehicleCost": {
+          "name": "GLVehicleCost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "GrossProfit": {
+          "name": "GrossProfit",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "HomePhone": {
+          "name": "HomePhone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "IncentiveDealer": {
+          "name": "IncentiveDealer",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "IncentiveProgram": {
+          "name": "IncentiveProgram",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBICarrier": {
+          "name": "MBICarrier",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBICost": {
+          "name": "MBICost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBIDeductible": {
+          "name": "MBIDeductible",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBIEligComment": {
+          "name": "MBIEligComment",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBIEligFlag": {
+          "name": "MBIEligFlag",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBIFee": {
+          "name": "MBIFee",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBIIncome": {
+          "name": "MBIIncome",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBILimit": {
+          "name": "MBILimit",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBILimitMax": {
+          "name": "MBILimitMax",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "MBIName": {
+          "name": "MBIName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AHCost": {
+          "name": "AHCost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AHIncome": {
+          "name": "AHIncome",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AHPremium": {
+          "name": "AHPremium",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "APR": {
+          "name": "APR",
+          "type": "numeric(5, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AccountingAccount": {
+          "name": "AccountingAccount",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AccountingDate": {
+          "name": "AccountingDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddCapCostFee3DealerCommBase": {
+          "name": "AddCapCostFee3DealerCommBase",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddCapCostFee4DealerCommBase": {
+          "name": "AddCapCostFee4DealerCommBase",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddCapCostFee5DealerCommBase": {
+          "name": "AddCapCostFee5DealerCommBase",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddCapCostFee6DealerCommBase": {
+          "name": "AddCapCostFee6DealerCommBase",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddCapCostFee7DealerCommBase": {
+          "name": "AddCapCostFee7DealerCommBase",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapAmount": {
+          "name": "AddToCapAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee1Amount": {
+          "name": "AddToCapCostFee1Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee1CostAmount": {
+          "name": "AddToCapCostFee1CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee1Name": {
+          "name": "AddToCapCostFee1Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee1ProfitType": {
+          "name": "AddToCapCostFee1ProfitType",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee2Amount": {
+          "name": "AddToCapCostFee2Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee2CostAmount": {
+          "name": "AddToCapCostFee2CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee2Name": {
+          "name": "AddToCapCostFee2Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee2ProfitType": {
+          "name": "AddToCapCostFee2ProfitType",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee3Amount": {
+          "name": "AddToCapCostFee3Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee3CostAmount": {
+          "name": "AddToCapCostFee3CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee3Name": {
+          "name": "AddToCapCostFee3Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee3ProfitType": {
+          "name": "AddToCapCostFee3ProfitType",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee4Amount": {
+          "name": "AddToCapCostFee4Amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee4CostAmount": {
+          "name": "AddToCapCostFee4CostAmount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee4Flag": {
+          "name": "AddToCapCostFee4Flag",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AddToCapCostFee4Name": {
+          "name": "AddToCapCostFee4Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email1": {
+          "name": "Email1",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email1Desc": {
+          "name": "Email1Desc",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email2": {
+          "name": "Email2",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email2Desc": {
+          "name": "Email2Desc",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email3": {
+          "name": "Email3",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email3Desc": {
+          "name": "Email3Desc",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ErrorLevel": {
+          "name": "ErrorLevel",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ErrorMessage": {
+          "name": "ErrorMessage",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Miscellaneous1": {
+          "name": "Miscellaneous1",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Miscellaneous2": {
+          "name": "Miscellaneous2",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Model": {
+          "name": "Model",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ModelName": {
+          "name": "ModelName",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ModelNo": {
+          "name": "ModelNo",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ModelType": {
+          "name": "ModelType",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name": {
+          "name": "Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Name1": {
+          "name": "Name1",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NetTrade1": {
+          "name": "NetTrade1",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NetTrade2": {
+          "name": "NetTrade2",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "OptionsCommDlr": {
+          "name": "OptionsCommDlr",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Term": {
+          "name": "Term",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TexasGAPInsuranceAmount": {
+          "name": "TexasGAPInsuranceAmount",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TexasGAPInsuranceDealerCommissionBase": {
+          "name": "TexasGAPInsuranceDealerCommissionBase",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalAnnFees": {
+          "name": "TotalAnnFees",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalCapReduction": {
+          "name": "TotalCapReduction",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalCashSurplus": {
+          "name": "TotalCashSurplus",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalCommission": {
+          "name": "TotalCommission",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalCommissionSP1": {
+          "name": "TotalCommissionSP1",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalCommissionSP2": {
+          "name": "TotalCommissionSP2",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalDown": {
+          "name": "TotalDown",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalFinancedFeeOptions": {
+          "name": "TotalFinancedFeeOptions",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalGross": {
+          "name": "TotalGross",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalInitFees": {
+          "name": "TotalInitFees",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalInsurancePremiums": {
+          "name": "TotalInsurancePremiums",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalOfMonthlyPayments": {
+          "name": "TotalOfMonthlyPayments",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalOptionsFees": {
+          "name": "TotalOptionsFees",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalTaxableFees": {
+          "name": "TotalTaxableFees",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalTradeAllowance": {
+          "name": "TotalTradeAllowance",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalTradesACV": {
+          "name": "TotalTradesACV",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalTradesNet": {
+          "name": "TotalTradesNet",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalTradesOver": {
+          "name": "TotalTradesOver",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TotalTradesPayoff": {
+          "name": "TotalTradesPayoff",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax1Amount": {
+          "name": "PurchaseFlexibleTax1Amount",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax1Base": {
+          "name": "PurchaseFlexibleTax1Base",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax1Max": {
+          "name": "PurchaseFlexibleTax1Max",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax1MaxCode": {
+          "name": "PurchaseFlexibleTax1MaxCode",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax1Name": {
+          "name": "PurchaseFlexibleTax1Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax1Rate": {
+          "name": "PurchaseFlexibleTax1Rate",
+          "type": "numeric(5, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax2Amount": {
+          "name": "PurchaseFlexibleTax2Amount",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax2Base": {
+          "name": "PurchaseFlexibleTax2Base",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax2Max": {
+          "name": "PurchaseFlexibleTax2Max",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax2MaxCode": {
+          "name": "PurchaseFlexibleTax2MaxCode",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax2Name": {
+          "name": "PurchaseFlexibleTax2Name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseFlexibleTax2Rate": {
+          "name": "PurchaseFlexibleTax2Rate",
+          "type": "numeric(5, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseMBICost": {
+          "name": "PurchaseMBICost",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PurchaseMBISP2CommAmount": {
+          "name": "PurchaseMBISP2CommAmount",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Color": {
+          "name": "Color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CommOnSaleDlr": {
+          "name": "CommOnSaleDlr",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CommissionPack": {
+          "name": "CommissionPack",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CommissionSP1": {
+          "name": "CommissionSP1",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CommissionSP2": {
+          "name": "CommissionSP2",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CommissionSP3": {
+          "name": "CommissionSP3",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Cont1Date": {
+          "name": "Cont1Date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Cont1Reason": {
+          "name": "Cont1Reason",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Cont2Date": {
+          "name": "Cont2Date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Cont2Reason": {
+          "name": "Cont2Reason",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ContractDate": {
+          "name": "ContractDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CostPrice": {
+          "name": "CostPrice",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "County": {
+          "name": "County",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CustNo": {
+          "name": "CustNo",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CustOrCompanyCode": {
+          "name": "CustOrCompanyCode",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CustomerCashDown": {
+          "name": "CustomerCashDown",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CustomerComments": {
+          "name": "CustomerComments",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "InitFee10DealerCommissionBase": {
+          "name": "InitFee10DealerCommissionBase",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deals_pkey": {
+          "name": "deals_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
