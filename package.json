@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "bun run --hot src/index.ts",
+    "start": "bun run src/index.ts",
     "db:generate": "drizzle-kit generate:pg",
     "db:migrate": "tsx migrate.ts"
   },
