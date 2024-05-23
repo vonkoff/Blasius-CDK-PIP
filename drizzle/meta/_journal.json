@@ -15,6 +15,20 @@
       "when": 1716469237846,
       "tag": "0001_young_rafael_vega",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1716470825496,
+      "tag": "0002_hot_captain_cross",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1716475520285,
+      "tag": "0003_quick_harry_osborn",
+      "breakpoints": true
     }
   ]
 }

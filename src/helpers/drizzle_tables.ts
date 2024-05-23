@@ -177,9 +177,20 @@ const dateFields = [
   "PickupDate3",
   "LastPayDate",
   "FirstPayDate",
+  "RetailPriceUpdateDate",
+  "VehicleSoldDate",
+  "SoldDate",
+  "OrderDate",
+  "ExpectedDeliveryDate",
+  "AdvertisedPriceExpDate",
+  "AdvertisedPriceStartDate",
+  "EntryDate",
+  "LastActivityDate",
 ];
 
-function transformInsertDeals(data: { [key: string]: any }): InsertDeals {
+function transformInsert<T extends { [key: string]: any }>(data: {
+  [key: string]: any;
+}): T {
   const transformedData: { [key: string]: any } = {};
 
   Object.keys(data).forEach((key) => {
@@ -209,14 +220,13 @@ function transformInsertDeals(data: { [key: string]: any }): InsertDeals {
     }
   });
 
-  return transformedData as InsertDeals;
+  return transformedData as T;
 }
 
 type InsertDeals = typeof deals.$inferInsert;
 export async function upsertDeals(item: InsertDeals) {
-  const validatedItem = transformInsertDeals(item);
-  console.log(item.StockNo);
-  console.log(validatedItem.StockNo);
+  const validatedItem = transformInsert<InsertDeals>(item);
+  console.log(validatedItem.VIN);
 
   // Do not update timestamp
   const { Timestamp, ...restValidatedItem } = validatedItem;
@@ -239,106 +249,17 @@ export async function upsertDeals(item: InsertDeals) {
 
 const insertVehicleschema = createInsertSchema(vehicles);
 
-export async function upsertVehicle(item) {
-  const record = {
-    vin: item.VIN ? item.VIN.toString() : null,
-    primaryDriverNo: item.PrimaryDriverNo
-      ? item.PrimaryDriverNo.toString()
-      : null,
-    accountingAccount: item.AccountingAccount,
-    model: item.Model ? item.Model.toString() : null,
-    modelName: item.ModelName ? item.ModelName.toString() : null,
-    modelType: item.ModelType ? item.ModelType.toString() : null,
-    trimLevel: item.TrimLevel ? item.TrimLevel.toString() : null,
-    engineDescription: item.EngineDescription
-      ? item.EngineDescription.toString()
-      : null,
-    engineNo: item.EngineNo ? item.EngineNo.toString() : null,
-    color: item.Color,
-    interiorColor: item.InteriorColor ? item.InteriorColor.toString() : null,
-    bodyStyle: item.BodyStyle,
-    fuelType: item.FuelType,
-    year: item.Year,
-    make: item.Make,
-    makeName: item.MakeName,
-    manufacturer: item.Manufacturer,
-    plantOfManufacture: item.PlantOfManufacture,
-    numberOfDoors: item.NumberOfDoors,
-    cylinderNo: item.CylinderNo,
-    commissionPrice: item.CommissionPrice
-      ? item.CommissionPrice.toString()
-      : null,
-    retailPriceUpdateDate: item.RetailPriceUpdateDate,
-    vehicleSoldDate: item.VehicleSoldDate,
-    soldDate: item.SoldDate,
-    mileage: item.Mileage,
-    soldMileage: item.SoldMileage,
-    stockNo: item.StockNo ? item.StockNo.toString() : null,
-    stockType: item.StockType,
-    status: item.Status,
-    balance: item.Balance ? item.Balance.toString() : null,
-    price1: item.Price1 ? item.Price1.toString() : null,
-    price2: item.Price2 ? item.Price2.toString() : null,
-  };
+type InsertVehicles = typeof vehicles.$inferInsert;
+export async function upsertVehicle(item: InsertVehicles) {
+  const validatedItem = transformInsert<InsertVehicles>(item);
 
-  // const record = {
-  //   vin: item.VIN ,
-  //   primaryDriverNo: item.PrimaryDriverNo,
-  //   accountingAccount: item.AccountingAccount,
-  //   model: item.Model ,
-  //   modelName: item.ModelName ,
-  //   modelType: item.ModelType ,
-  //   trimLevel: item.TrimLevel ,
-  //   engineDescription: item.EngineDescription,
-  //   engineNo: item.EngineNo ,
-  //   color: item.Color,
-  //   interiorColor: item.InteriorColor ,
-  //   bodyStyle: item.BodyStyle,
-  //   fuelType: item.FuelType,
-  //   year: item.Year,
-  //   make: item.Make,
-  //   makeName: item.MakeName,
-  //   manufacturer: item.Manufacturer,
-  //   plantOfManufacture: item.PlantOfManufacture,
-  //   numberOfDoors: item.NumberOfDoors,
-  //   cylinderNo: item.CylinderNo,
-  //   commissionPrice: item.CommissionPrice,
-  //   retailPriceUpdateDate: item.RetailPriceUpdateDate,
-  //   vehicleSoldDate: item.VehicleSoldDate,
-  //   soldDate: item.SoldDate,
-  //   mileage: item.Mileage,
-  //   soldMileage: item.SoldMileage,
-  //   stockNo: item.StockNo ,
-  //   stockType: item.StockType,
-  //   status: item.Status,
-  //   balance: item.Balance ,
-  //   price1: item.Price1 ,
-  //   price2: item.Price2 ,
-  // };
-
-  try {
-    parse(insertVehicleschema, record);
-  } catch (error) {
-    console.log("ERROR!");
-    console.error(v.flatten<typeof insertVehicleschema>(error));
-  }
-
-  try {
-    const result = await db
-      .insert(vehicles)
-      .values(record)
-      .onConflictDoUpdate({ target: vehicles.vin, set: record })
-      .returning({ stockNo: vehicles.stockNo });
-    console.log(result);
-  } catch (obj) {
-    console.log("ERROR INSERTING!");
-    // Object.keys(obj).forEach((key) => {
-    //   console.log(`${key}: ${obj[key as keyof typeof obj]}`);
-    // });
-    // console.log(error.message);
-  }
-
-  console.log("MADE IT HERE!");
+  await db
+    .insert(vehicles)
+    .values(validatedItem)
+    .onConflictDoUpdate({
+      target: [vehicles.VIN],
+      set: { ...validatedItem },
+    });
 }
 
 const insertGLJEschema = createInsertSchema(GLJE);
