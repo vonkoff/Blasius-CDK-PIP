@@ -12,6 +12,7 @@ import { fetchData } from "./helpers/retrieve_xml";
 // NORTH_DEALER = "3PA115539"
 // BKIA_DEALER = "3PA98685"
 // BGMC_DEALER = "3PA118932"
+// LBCC_DEALER = "3PA115533"
 
 // ACCOUNTS
 // 1. LBCC
@@ -46,6 +47,8 @@ const DEALERSLESS = [
   "3PA115539",
 ];
 
+const LBCCDealer = ["3PA115533"];
+
 interface RequestParams {
   dealerId: string;
   urlParam: string;
@@ -63,7 +66,7 @@ endOfPreviousDay.setUTCHours(23, 59, 59, 999); // Set to end of previous day
 endOfPreviousDay.setUTCDate(endOfPreviousDay.getUTCDate() - 1);
 
 const startTimestamp = formatDate(endOfPreviousDay);
-const currentTimestamp = formatDate(new Date());
+const endTimeStamp = formatDate(new Date());
 
 const app = new Hono();
 
@@ -74,19 +77,21 @@ async function handleCdkRequestForDealer(params: RequestParams) {
   await fetchData(dealerId, urlParam, queryId, additionalParams);
 }
 
-app.post("/cdk/dealers-salesopen", async (c) => {
+app.post("/cdk/dealers-salesclosed", async (c) => {
   const results = [];
 
   const additionalParams = {
-    qparamStartDate: "01/01/2024",
-    qparamEndDate: "03/31/2024",
+    qparamStartDate: "05/20/2024",
+    qparamEndDate: "05/23/2024",
+    // qparamStartDate: startTimestamp,
+    // qparamEndDate: endTimeStamp,
   };
 
-  for (const dealerId of DEALERS) {
+  for (const dealerId of LBCCDealer) {
     const requestParams: RequestParams = {
       dealerId: dealerId,
       urlParam: "fisales-closed",
-      queryId: "dywFISC_Delta",
+      queryId: "dywFISC_DateRange",
       additionalParams,
     };
     try {
@@ -110,7 +115,7 @@ app.post("/cdk/dealers-vehicles", async (c) => {
   const results = [];
 
   const additionalParams = {
-    deltaDate: "04/10/2024",
+    // deltaDate: endTimeStamp,
     qparamInvCompany: 1,
   };
 
@@ -118,8 +123,8 @@ app.post("/cdk/dealers-vehicles", async (c) => {
     const requestParams: RequestParams = {
       dealerId: dealerId,
       urlParam: "inventoryvehicleext",
-      // queryId: "dywINVEH_Bulk",
-      queryId: "dywIVEH_Delta",
+      queryId: "dywINVEH_Bulk",
+      // queryId: "dywIVEH_Delta",
       additionalParams,
     };
     try {

@@ -13,62 +13,13 @@ import {
   upsertCOA,
 } from "../helpers/drizzle_tables";
 
-function convertXmlValues(obj: any) {
-  for (const key in obj) {
-    if (Array.isArray(obj[key]) && obj[key].length > 0) {
-      // Extract first element from array if it exists
-      obj[key] = obj[key][0];
-    }
-
-    // After extracting from array or if it's already a simple type
-    if (typeof obj[key] === "string") {
-      const trimmed = obj[key].trim();
-      // Convert to number if it's a valid number string, otherwise keep as string or convert to null
-      if (trimmed === "") {
-        obj[key] = null;
-      } else {
-        const num = parseFloat(trimmed);
-        // Use parseFloat and check if the trimmed string is a numeric value
-        if (!isNaN(num) && num.toString() === trimmed) {
-          obj[key] = num;
-        } else {
-          obj[key] = trimmed;
-        }
-      }
-      // if (isNaN(obj[key]) && obj[key] !== null) {
-      //   console.error(
-      //     `Conversion to number failed for key ${key}: original value '${trimmed}', parsed as '${obj[key]}'`,
-      //   );
-      // }
-    } else if (typeof obj[key] === "object" && obj[key] !== null) {
-      convertXmlValues(obj[key]); // Recursive call for nested objects
-    }
+// Custom coerce function to convert empty strings to null
+const coerceToNumberOrNull = (input) => {
+  if (input === "") {
+    return null;
   }
-}
-
-function parseObjectToFloat(obj) {
-  for (const key in obj) {
-    // Skip conversion for any date property
-    if (key.toLowerCase().includes("date")) {
-      continue;
-    }
-    // Special handling for "leaseEndPercentageRate"
-    if (key === "LeaseEndPercentageRate") {
-      const percentage = parseFloat(obj[key]);
-      if (!isNaN(percentage)) {
-        obj[key] = Math.round(percentage); // Convert to integer
-        continue; // Move to the next key
-      }
-    }
-    const parsed = parseFloat(obj[key]);
-    if (!isNaN(parsed)) {
-      obj[key] = parsed;
-    }
-    // If NaN, obj[key] retains its original string value
-  }
-
-  return obj;
-}
+  return Number(input);
+};
 
 // type QueryId = "invtDelta" | "invtBulk";
 // const paths: Record<QueryId, string> = {
@@ -77,7 +28,9 @@ function parseObjectToFloat(obj) {
 // };
 //
 interface PathConfig {
+  // Extract is namespace
   extract: string;
+  // Base is data we are looking for
   base: string;
 }
 type Path = {
@@ -128,6 +81,7 @@ export async function saveXmlToDb(xmlData: string, queryId: string) {
   //! Remove later below when done understanding json results
   try {
     const result = await parseStringPromise(xmlData);
+
     try {
       const result = await parseStringPromise(xmlData);
       let json = JSON.stringify(result, null, 2);
@@ -148,12 +102,16 @@ export async function saveXmlToDb(xmlData: string, queryId: string) {
 
     if (jsonData && Array.isArray(jsonData)) {
       for (const item of jsonData) {
-        convertXmlValues(item);
-        const cleanedItem = parseObjectToFloat(item);
-        console.log(cleanedItem);
         try {
+          // Flatten item values because each of them is an array
+          const flattenedItem = Object.fromEntries(
+            Object.entries(item).map(([key, value]) => [
+              key,
+              Array.isArray(value) ? value[0] : value,
+            ]),
+          );
           const upsertFunction = upsertFunctionMap[queryId];
-          await upsertFunction(cleanedItem, queryId);
+          await upsertFunction(flattenedItem, queryId);
         } catch (error) {
           console.error(
             "Error processing XML or saving to the database:",

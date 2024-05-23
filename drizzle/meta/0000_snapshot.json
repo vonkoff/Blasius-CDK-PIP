@@ -1,79 +1,214 @@
 {
-  "id": "00000000-0000-0000-0000-000000000000",
-  "prevId": "",
+  "id": "6787cc4e-41b2-4b90-b818-d2822e805426",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
   "tables": {
-    "alembic_version": {
-      "name": "alembic_version",
+    "COA": {
+      "name": "COA",
       "schema": "",
       "columns": {
-        "version_num": {
-          "name": "version_num",
-          "type": "varchar(32)",
-          "primaryKey": true,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "raw_xml_data": {
-      "name": "raw_xml_data",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
+        "StatCountType": {
+          "name": "StatCountType",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
-        "xml_content": {
-          "name": "xml_content",
-          "type": "xml",
+        "Pattern": {
+          "name": "Pattern",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
-        "processed": {
-          "name": "processed",
-          "type": "boolean",
+        "PostDescFlag": {
+          "name": "PostDescFlag",
+          "type": "text",
           "primaryKey": false,
-          "notNull": false,
-          "default": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "deal_initialfee": {
-      "name": "deal_initialfee",
-      "schema": "",
-      "columns": {
-        "FiWipStatusCode": {
-          "name": "FiWipStatusCode",
-          "type": "varchar(2)",
-          "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
-        "Branch": {
-          "name": "Branch",
-          "type": "varchar(20)",
+        "TechFlag": {
+          "name": "TechFlag",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "HostItemID": {
           "name": "HostItemID",
-          "type": "varchar(20)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "InitialFee4ProfitType": {
-          "name": "InitialFee4ProfitType",
-          "type": "varchar(1)",
+        "AccountDescription": {
+          "name": "AccountDescription",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AccountNumber": {
+          "name": "AccountNumber",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "AccountNumberRight": {
+          "name": "AccountNumberRight",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "AccountType": {
+          "name": "AccountType",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AcctSubType": {
+          "name": "AcctSubType",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "AcctUpdDate": {
+          "name": "AcctUpdDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BeginDate": {
+          "name": "BeginDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Cntl2Type": {
+          "name": "Cntl2Type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CntlType": {
+          "name": "CntlType",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CompanyID": {
+          "name": "CompanyID",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "CompanyIDRight": {
+          "name": "CompanyIDRight",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "DeptID": {
+          "name": "DeptID",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DeptIDRight": {
+          "name": "DeptIDRight",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "EndDate": {
+          "name": "EndDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ErrorLevel": {
+          "name": "ErrorLevel",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ErrorMessage": {
+          "name": "ErrorMessage",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FranchiseId": {
+          "name": "FranchiseId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "BFSched": {
+          "name": "BFSched",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DFSched": {
+          "name": "DFSched",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "IncBalGrp": {
+          "name": "IncBalGrp",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "IncBalGrpDesc": {
+          "name": "IncBalGrpDesc",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "IncBalSubGrp": {
+          "name": "IncBalSubGrp",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "IncBalSubGrpDesc": {
+          "name": "IncBalSubGrpDesc",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ProdType": {
+          "name": "ProdType",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "RptGrp": {
+          "name": "RptGrp",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "RptGrpDesc": {
+          "name": "RptGrpDesc",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "UnaGrp": {
+          "name": "UnaGrp",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "UnaGrpDesc": {
+          "name": "UnaGrpDesc",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Chain": {
+          "name": "Chain",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         }
@@ -81,343 +216,215 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {
-        "deal_initialfee_pkey": {
-          "name": "deal_initialfee_pkey",
+        "COA_pkey": {
+          "name": "COA_pkey",
           "columns": [
-            "FiWipStatusCode",
-            "Branch",
-            "HostItemID"
+            "HostItemID",
+            "AccountNumber",
+            "CompanyID"
           ]
         }
       },
       "uniqueConstraints": {}
     },
-    "deal_tradedealerdefined": {
-      "name": "deal_tradedealerdefined",
+    "GLJE": {
+      "name": "GLJE",
       "schema": "",
       "columns": {
-        "FiWipStatusCode": {
-          "name": "FiWipStatusCode",
-          "type": "varchar(2)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "Branch": {
-          "name": "Branch",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true
-        },
         "HostItemID": {
           "name": "HostItemID",
-          "type": "varchar(20)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "TradeDealerDefined1": {
-          "name": "TradeDealerDefined1",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "TradeDealerDefined2": {
-          "name": "TradeDealerDefined2",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "TradeDealerDefined3": {
-          "name": "TradeDealerDefined3",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "TradeDealerDefined4": {
-          "name": "TradeDealerDefined4",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "TradeDealerDefined5": {
-          "name": "TradeDealerDefined5",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "TradeDealerDefined6": {
-          "name": "TradeDealerDefined6",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "TradeDealerDefined7": {
-          "name": "TradeDealerDefined7",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "TradeDealerDefined8": {
-          "name": "TradeDealerDefined8",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "deal_tradedealerdefined_pkey": {
-          "name": "deal_tradedealerdefined_pkey",
-          "columns": [
-            "FiWipStatusCode",
-            "Branch",
-            "HostItemID"
-          ]
-        }
-      },
-      "uniqueConstraints": {}
-    },
-    "deal_trade2": {
-      "name": "deal_trade2",
-      "schema": "",
-      "columns": {
-        "FiWipStatusCode": {
-          "name": "FiWipStatusCode",
-          "type": "varchar(2)",
+        "AccountingDate": {
+          "name": "AccountingDate",
+          "type": "date",
           "primaryKey": false,
           "notNull": true
         },
-        "Branch": {
-          "name": "Branch",
-          "type": "varchar(20)",
+        "AccountNumber": {
+          "name": "AccountNumber",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "HostItemID": {
-          "name": "HostItemID",
-          "type": "varchar(20)",
+        "AccountNumberRight": {
+          "name": "AccountNumberRight",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "Trade2ACV": {
-          "name": "Trade2ACV",
-          "type": "varchar(17)",
+        "CompanyID": {
+          "name": "CompanyID",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "CompanyIDRight": {
+          "name": "CompanyIDRight",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Control": {
+          "name": "Control",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2Color": {
-          "name": "Trade2Color",
-          "type": "varchar(17)",
+        "Control2": {
+          "name": "Control2",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2Gross": {
-          "name": "Trade2Gross",
+        "ControlRight": {
+          "name": "ControlRight",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Control2Right": {
+          "name": "Control2Right",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ControlType": {
+          "name": "ControlType",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ControlType2": {
+          "name": "ControlType2",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CurrentMonth": {
+          "name": "CurrentMonth",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DetailDescription": {
+          "name": "DetailDescription",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DistillControlType": {
+          "name": "DistillControlType",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DistillControlType2": {
+          "name": "DistillControlType2",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ErrorLevel": {
+          "name": "ErrorLevel",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ErrorMessage": {
+          "name": "ErrorMessage",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "JournalID": {
+          "name": "JournalID",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "JournalIDRight": {
+          "name": "JournalIDRight",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PostingAmount": {
+          "name": "PostingAmount",
           "type": "numeric(10, 2)",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2Make": {
-          "name": "Trade2Make",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade2Mileage": {
-          "name": "Trade2Mileage",
+        "PostingSequence": {
+          "name": "PostingSequence",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2Model": {
-          "name": "Trade2Model",
-          "type": "varchar(17)",
+        "PostingTime": {
+          "name": "PostingTime",
+          "type": "bigint",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2ModelName": {
-          "name": "Trade2ModelName",
-          "type": "varchar(17)",
+        "ProdNo": {
+          "name": "ProdNo",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2ModelNo": {
-          "name": "Trade2ModelNo",
-          "type": "varchar(17)",
+        "ProdNo2": {
+          "name": "ProdNo2",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2ModelType": {
-          "name": "Trade2ModelType",
-          "type": "varchar(17)",
+        "ProdNoRight": {
+          "name": "ProdNoRight",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2Over": {
-          "name": "Trade2Over",
+        "ProdNo2Right": {
+          "name": "ProdNo2Right",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ProdType": {
+          "name": "ProdType",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade2PayOff": {
-          "name": "Trade2PayOff",
-          "type": "numeric(10, 2)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade2Stock": {
-          "name": "Trade2Stock",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade2Style": {
-          "name": "Trade2Style",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade2VIN": {
-          "name": "Trade2VIN",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade2Year": {
-          "name": "Trade2Year",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "deal_trade2_pkey": {
-          "name": "deal_trade2_pkey",
-          "columns": [
-            "FiWipStatusCode",
-            "Branch",
-            "HostItemID"
-          ]
-        }
-      },
-      "uniqueConstraints": {}
-    },
-    "deal_trade1": {
-      "name": "deal_trade1",
-      "schema": "",
-      "columns": {
-        "FiWipStatusCode": {
-          "name": "FiWipStatusCode",
-          "type": "varchar(2)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "Branch": {
-          "name": "Branch",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "HostItemID": {
-          "name": "HostItemID",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "Trade1Model": {
-          "name": "Trade1Model",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1ModelName": {
-          "name": "Trade1ModelName",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1ModelNo": {
-          "name": "Trade1ModelNo",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1ModelType": {
-          "name": "Trade1ModelType",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1Over": {
-          "name": "Trade1Over",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1PayOff": {
-          "name": "Trade1PayOff",
-          "type": "numeric(10, 2)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1Stock": {
-          "name": "Trade1Stock",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1Style": {
-          "name": "Trade1Style",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1VIN": {
-          "name": "Trade1VIN",
-          "type": "varchar(17)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1Year": {
-          "name": "Trade1Year",
+        "ProdType2": {
+          "name": "ProdType2",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade1ACV": {
-          "name": "Trade1ACV",
-          "type": "numeric(12, 2)",
+        "Refer": {
+          "name": "Refer",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade1Color": {
-          "name": "Trade1Color",
-          "type": "varchar(50)",
+        "ReferRight": {
+          "name": "ReferRight",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade1Gross": {
-          "name": "Trade1Gross",
-          "type": "numeric(12, 2)",
+        "ScheduleNumber": {
+          "name": "ScheduleNumber",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "Trade1Make": {
-          "name": "Trade1Make",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1MakeName": {
-          "name": "Trade1MakeName",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Trade1Mileage": {
-          "name": "Trade1Mileage",
+        "StatCount": {
+          "name": "StatCount",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -426,181 +433,12 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {
-        "deal_trade1_pkey": {
-          "name": "deal_trade1_pkey",
+        "GLJE_pkey": {
+          "name": "GLJE_pkey",
           "columns": [
-            "FiWipStatusCode",
-            "Branch",
-            "HostItemID"
-          ]
-        }
-      },
-      "uniqueConstraints": {}
-    },
-    "deal_fiaux": {
-      "name": "deal_fiaux",
-      "schema": "",
-      "columns": {
-        "FiWipStatusCode": {
-          "name": "FiWipStatusCode",
-          "type": "varchar(2)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "Branch": {
-          "name": "Branch",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "HostItemID": {
-          "name": "HostItemID",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "FiAux1": {
-          "name": "FiAux1",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "FiAux40": {
-          "name": "FiAux40",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux41": {
-          "name": "FiAux41",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux42": {
-          "name": "FiAux42",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux43": {
-          "name": "FiAux43",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux44": {
-          "name": "FiAux44",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux45": {
-          "name": "FiAux45",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux46": {
-          "name": "FiAux46",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux47": {
-          "name": "FiAux47",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux48": {
-          "name": "FiAux48",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux49": {
-          "name": "FiAux49",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux5": {
-          "name": "FiAux5",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux50": {
-          "name": "FiAux50",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux6": {
-          "name": "FiAux6",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux7": {
-          "name": "FiAux7",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux8": {
-          "name": "FiAux8",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux9": {
-          "name": "FiAux9",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux10": {
-          "name": "FiAux10",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux11": {
-          "name": "FiAux11",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux12": {
-          "name": "FiAux12",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "FiAux13": {
-          "name": "FiAux13",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "FiAux14": {
-          "name": "FiAux14",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "deal_fiaux_pkey": {
-          "name": "deal_fiaux_pkey",
-          "columns": [
-            "FiWipStatusCode",
-            "Branch",
-            "HostItemID"
+            "HostItemID",
+            "AccountingDate",
+            "AccountNumber"
           ]
         }
       },
@@ -1242,6 +1080,563 @@
       },
       "uniqueConstraints": {}
     },
+    "deal_fiaux": {
+      "name": "deal_fiaux",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "FiAux1": {
+          "name": "FiAux1",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux40": {
+          "name": "FiAux40",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux41": {
+          "name": "FiAux41",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux42": {
+          "name": "FiAux42",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux43": {
+          "name": "FiAux43",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux44": {
+          "name": "FiAux44",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux45": {
+          "name": "FiAux45",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux46": {
+          "name": "FiAux46",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux47": {
+          "name": "FiAux47",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux48": {
+          "name": "FiAux48",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux49": {
+          "name": "FiAux49",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux5": {
+          "name": "FiAux5",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux50": {
+          "name": "FiAux50",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux6": {
+          "name": "FiAux6",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux7": {
+          "name": "FiAux7",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux8": {
+          "name": "FiAux8",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux9": {
+          "name": "FiAux9",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux10": {
+          "name": "FiAux10",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux11": {
+          "name": "FiAux11",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux12": {
+          "name": "FiAux12",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux13": {
+          "name": "FiAux13",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "FiAux14": {
+          "name": "FiAux14",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_fiaux_pkey": {
+          "name": "deal_fiaux_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deal_initialfee": {
+      "name": "deal_initialfee",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "InitialFee4ProfitType": {
+          "name": "InitialFee4ProfitType",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_initialfee_pkey": {
+          "name": "deal_initialfee_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deal_trade1": {
+      "name": "deal_trade1",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Trade1Model": {
+          "name": "Trade1Model",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1ModelName": {
+          "name": "Trade1ModelName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1ModelNo": {
+          "name": "Trade1ModelNo",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1ModelType": {
+          "name": "Trade1ModelType",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Over": {
+          "name": "Trade1Over",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1PayOff": {
+          "name": "Trade1PayOff",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Stock": {
+          "name": "Trade1Stock",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Style": {
+          "name": "Trade1Style",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1VIN": {
+          "name": "Trade1VIN",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Year": {
+          "name": "Trade1Year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1ACV": {
+          "name": "Trade1ACV",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Color": {
+          "name": "Trade1Color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Gross": {
+          "name": "Trade1Gross",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Make": {
+          "name": "Trade1Make",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1MakeName": {
+          "name": "Trade1MakeName",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade1Mileage": {
+          "name": "Trade1Mileage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_trade1_pkey": {
+          "name": "deal_trade1_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deal_trade2": {
+      "name": "deal_trade2",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Trade2ACV": {
+          "name": "Trade2ACV",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Color": {
+          "name": "Trade2Color",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Gross": {
+          "name": "Trade2Gross",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Make": {
+          "name": "Trade2Make",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Mileage": {
+          "name": "Trade2Mileage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Model": {
+          "name": "Trade2Model",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2ModelName": {
+          "name": "Trade2ModelName",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2ModelNo": {
+          "name": "Trade2ModelNo",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2ModelType": {
+          "name": "Trade2ModelType",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Over": {
+          "name": "Trade2Over",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2PayOff": {
+          "name": "Trade2PayOff",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Stock": {
+          "name": "Trade2Stock",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Style": {
+          "name": "Trade2Style",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2VIN": {
+          "name": "Trade2VIN",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Trade2Year": {
+          "name": "Trade2Year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_trade2_pkey": {
+          "name": "deal_trade2_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "deal_tradedealerdefined": {
+      "name": "deal_tradedealerdefined",
+      "schema": "",
+      "columns": {
+        "FiWipStatusCode": {
+          "name": "FiWipStatusCode",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Branch": {
+          "name": "Branch",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "HostItemID": {
+          "name": "HostItemID",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "TradeDealerDefined1": {
+          "name": "TradeDealerDefined1",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined2": {
+          "name": "TradeDealerDefined2",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined3": {
+          "name": "TradeDealerDefined3",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined4": {
+          "name": "TradeDealerDefined4",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined5": {
+          "name": "TradeDealerDefined5",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined6": {
+          "name": "TradeDealerDefined6",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined7": {
+          "name": "TradeDealerDefined7",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "TradeDealerDefined8": {
+          "name": "TradeDealerDefined8",
+          "type": "varchar(17)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "deal_tradedealerdefined_pkey": {
+          "name": "deal_tradedealerdefined_pkey",
+          "columns": [
+            "FiWipStatusCode",
+            "Branch",
+            "HostItemID"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
     "deals": {
       "name": "deals",
       "schema": "",
@@ -1298,7 +1693,7 @@
           "name": "StockNo",
           "type": "varchar(50)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "Tax": {
           "name": "Tax",
@@ -3822,13 +4217,305 @@
         }
       },
       "uniqueConstraints": {}
+    },
+    "vehicles": {
+      "name": "vehicles",
+      "schema": "",
+      "columns": {
+        "vin": {
+          "name": "vin",
+          "type": "varchar(17)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "primary_driver_no": {
+          "name": "primary_driver_no",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "accounting_account": {
+          "name": "accounting_account",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "model": {
+          "name": "model",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "model_name": {
+          "name": "model_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "model_type": {
+          "name": "model_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "trim_level": {
+          "name": "trim_level",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "engine_description": {
+          "name": "engine_description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "engine_no": {
+          "name": "engine_no",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "name": "color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "interior_color": {
+          "name": "interior_color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "body_style": {
+          "name": "body_style",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fuel_type": {
+          "name": "fuel_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "year": {
+          "name": "year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "make": {
+          "name": "make",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "make_name": {
+          "name": "make_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "plant_of_manufacture": {
+          "name": "plant_of_manufacture",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "number_of_doors": {
+          "name": "number_of_doors",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cylinder_no": {
+          "name": "cylinder_no",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "commission_price": {
+          "name": "commission_price",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "retail_price_update_date": {
+          "name": "retail_price_update_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "vehicle_sold_date": {
+          "name": "vehicle_sold_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sold_date": {
+          "name": "sold_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mileage": {
+          "name": "mileage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sold_mileage": {
+          "name": "sold_mileage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock_no": {
+          "name": "stock_no",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stock_type": {
+          "name": "stock_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "balance": {
+          "name": "balance",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "price1": {
+          "name": "price1",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "price2": {
+          "name": "price2",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "options": {
+          "name": "options",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "order_date": {
+          "name": "order_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "expected_delivery_date": {
+          "name": "expected_delivery_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "actual_cash_value": {
+          "name": "actual_cash_value",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "advertised_price": {
+          "name": "advertised_price",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "advertised_price_exp_date": {
+          "name": "advertised_price_exp_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "advertised_price_start_date": {
+          "name": "advertised_price_start_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_options_cost": {
+          "name": "total_options_cost",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_options_invoice": {
+          "name": "total_options_invoice",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_options_retail": {
+          "name": "total_options_retail",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "invoice_pack_amount": {
+          "name": "invoice_pack_amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "commission_pack_amount": {
+          "name": "commission_pack_amount",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "commission_pack_percent": {
+          "name": "commission_pack_percent",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "entry_date": {
+          "name": "entry_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_activity_date": {
+          "name": "last_activity_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     }
   },
   "enums": {},
   "schemas": {},
   "_meta": {
+    "columns": {},
     "schemas": {},
-    "tables": {},
-    "columns": {}
+    "tables": {}
   }
 }

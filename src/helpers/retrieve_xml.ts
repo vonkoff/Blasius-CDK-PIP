@@ -46,6 +46,7 @@ export async function fetchData(
       console.log("XML data saved successfully.");
     } else {
       console.error("Failed to fetch data:", response.status);
+      console.error("Failed to fetch data:", response.statusText);
     }
   } catch (error) {
     console.error("Error fetching data:", error);
