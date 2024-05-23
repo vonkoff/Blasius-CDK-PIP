@@ -8,6 +8,7 @@ import {
   date,
   bigint,
   text,
+  timestamp,
 } from "drizzle-orm/pg-core";
 
 export const GLJE = pgTable(
@@ -1072,6 +1073,7 @@ export const deals = pgTable(
       precision: 12,
       scale: 2,
     }),
+    Timestamp: timestamp("Timestamp").notNull().defaultNow(),
   },
   (table) => {
     return {

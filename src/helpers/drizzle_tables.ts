@@ -218,12 +218,15 @@ export async function upsertDeals(item: InsertDeals) {
   console.log(item.StockNo);
   console.log(validatedItem.StockNo);
 
+  // Do not update timestamp
+  const { Timestamp, ...restValidatedItem } = validatedItem;
+
   await db
     .insert(deals)
     .values(validatedItem)
     .onConflictDoUpdate({
       target: [deals.FiWipStatusCode, deals.Branch, deals.HostItemID],
-      set: { ...validatedItem },
+      set: { ...restValidatedItem },
     });
   //TODO: Update the rest below to do UPDATE!
   //
