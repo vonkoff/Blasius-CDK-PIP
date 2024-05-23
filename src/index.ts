@@ -1,5 +1,8 @@
 import { Hono } from "hono";
 import { fetchData } from "./helpers/retrieve_xml";
+import "dotenv/config";
+
+const PORT = process.env.PORT;
 
 // ATTLE_DEALER = "3PA115594"
 // BRIS_DEALER = "3PA115551"
@@ -56,17 +59,19 @@ interface RequestParams {
   additionalParams: { [key: string]: any }; // Headers for URL request
 }
 
-// Function to format a date to the required string format
+// Function to format a date to mm/dd/yyyy
 const formatDate = (date: Date): string => {
-  return date.toISOString().slice(0, -1) + "Z"; // Convert to UTC and format
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  const year = date.getUTCFullYear();
+  return `${month}/${day}/${year}`;
 };
 
 const endOfPreviousDay = new Date();
 endOfPreviousDay.setUTCHours(23, 59, 59, 999); // Set to end of previous day
 endOfPreviousDay.setUTCDate(endOfPreviousDay.getUTCDate() - 1);
 
-const startTimestamp = formatDate(endOfPreviousDay);
-const endTimeStamp = formatDate(new Date());
+let shouldRunContinuously = true;
 
 const app = new Hono();
 
@@ -112,19 +117,22 @@ app.post("/cdk/dealers-salesclosed", async (c) => {
 });
 
 app.post("/cdk/dealers-vehicles", async (c) => {
-  const results = [];
+  const results: Array<{ dealerId: string; status: string; message?: string }> =
+    [];
 
+  const endTimeStamp = formatDate(new Date());
   const additionalParams = {
-    // deltaDate: endTimeStamp,
+    deltaDate: endTimeStamp,
     qparamInvCompany: 1,
   };
+  console.log(endTimeStamp);
 
-  for (const dealerId of DEALERSLESS) {
+  for (const dealerId of LBCCDealer) {
     const requestParams: RequestParams = {
       dealerId: dealerId,
       urlParam: "inventoryvehicleext",
-      queryId: "dywINVEH_Bulk",
-      // queryId: "dywIVEH_Delta",
+      // queryId: "dywINVEH_Bulk",
+      queryId: "dywIVEH_Delta",
       additionalParams,
     };
     try {
@@ -135,10 +143,19 @@ app.post("/cdk/dealers-vehicles", async (c) => {
       results.push({
         dealerId: dealerId,
         status: "error",
-        //@ts-ignore
-        message: error.message,
+        message: (error as Error).message,
       });
     }
+  }
+
+  // Schedule the next request if the flag is set
+  if (shouldRunContinuously) {
+    setTimeout(async () => {
+      // Make the request to the same endpoint
+      await fetch(`http://localhost:${PORT}/cdk/dealers-vehicles`, {
+        method: "POST",
+      });
+    }, 60000); // 1 minute in milliseconds
   }
   return c.json(results);
 });
@@ -210,4 +227,7 @@ app.post("/cdk/dealers-coa", async (c) => {
   return c.json(results);
 });
 
-export default app;
+export default {
+  port: PORT,
+  fetch: app.fetch,
+};

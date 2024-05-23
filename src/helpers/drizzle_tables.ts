@@ -253,6 +253,7 @@ type InsertVehicles = typeof vehicles.$inferInsert;
 export async function upsertVehicle(item: InsertVehicles) {
   const validatedItem = transformInsert<InsertVehicles>(item);
 
+  console.log(validatedItem.StockNo);
   await db
     .insert(vehicles)
     .values(validatedItem)
