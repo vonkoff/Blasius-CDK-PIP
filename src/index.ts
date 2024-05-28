@@ -1,6 +1,10 @@
 import { Hono } from "hono";
 import { fetchData } from "./helpers/retrieve_xml";
+import { Mutex, tryAcquire, E_ALREADY_LOCKED, withTimeout } from "async-mutex";
 import "dotenv/config";
+
+const mutex = new Mutex();
+const mutexWithTimeout = withTimeout(new Mutex(), 3000);
 
 const PORT = process.env.PORT;
 
@@ -127,36 +131,40 @@ app.post("/cdk/dealers-vehicles", async (c) => {
   };
   console.log(endTimeStamp);
 
-  for (const dealerId of LBCCDealer) {
-    const requestParams: RequestParams = {
-      dealerId: dealerId,
-      urlParam: "inventoryvehicleext",
-      // queryId: "dywINVEH_Bulk",
-      queryId: "dywIVEH_Delta",
-      additionalParams,
-    };
-    try {
-      await handleCdkRequestForDealer(requestParams);
-      results.push({ dealerId: dealerId, status: "success" });
-    } catch (error) {
-      console.error(`Error processing dealer ${dealerId}:`, error);
-      results.push({
-        dealerId: dealerId,
-        status: "error",
-        message: (error as Error).message,
-      });
-    }
-  }
+  await tryAcquire(mutexWithTimeout)
+    .runExclusive(async () => {
+      for await (const dealerId of LBCCDealer) {
+        const requestParams: RequestParams = {
+          dealerId: dealerId,
+          urlParam: "inventoryvehicleext",
+          // queryId: "dywINVEH_Bulk",
+          queryId: "dywIVEH_Delta",
+          additionalParams,
+        };
+        try {
+          await handleCdkRequestForDealer(requestParams);
+          results.push({ dealerId: dealerId, status: "success" });
+        } catch (error) {
+          console.error(`Error processing dealer ${dealerId}:`, error);
+          results.push({
+            dealerId: dealerId,
+            status: "error",
+            message: (error as Error).message,
+          });
+        }
+      }
+    })
+    .catch((err) => {
+      if (err === E_ALREADY_LOCKED) {
+        console.error(`Mutex locked`);
+        results.push({
+          dealerId: "whatever",
+          status: "error",
+          message: (err as Error).message,
+        });
+      }
+    });
 
-  // Schedule the next request if the flag is set
-  if (shouldRunContinuously) {
-    setTimeout(async () => {
-      // Make the request to the same endpoint
-      await fetch(`http://localhost:${PORT}/cdk/dealers-vehicles`, {
-        method: "POST",
-      });
-    }, 60000); // 1 minute in milliseconds
-  }
   return c.json(results);
 });
 
