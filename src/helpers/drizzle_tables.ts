@@ -12,6 +12,7 @@ import {
   dealFiaux,
   deals,
   vehicles,
+  customers,
   GLJE,
   COA,
 } from "../../db/schema";
@@ -19,152 +20,6 @@ import "dotenv/config";
 
 const sql = neon(process.env.NEON_DATABASE_URL!);
 const db = drizzle(sql);
-
-export async function upsertDealInitialfee(item) {
-  const record = {
-    fiWipStatusCode: item.FiWipStatusCode,
-    branch: item.Branch,
-    hostItemId: item.HostItemID,
-    initialFee4ProfitType: item.InitialFee4ProfitType,
-  };
-
-  const insertDealsInitialFeeschema = createInsertSchema(deals);
-  try {
-    parse(insertDealsInitialFeeschema, record);
-  } catch (error) {
-    console.log("ERROR!");
-    console.error(v.flatten<typeof insertDealsInitialFeeschema>(error));
-  }
-  await db.insert(dealInitialfee).values(record).onConflictDoNothing();
-}
-
-export async function upsertDealTradedealerdefined(item) {
-  const record = {
-    fiWipStatusCode: item.FiWipStatusCode,
-    branch: item.Branch,
-    hostItemId: item.HostItemID,
-    tradeDealerDefined1: item.TradeDealerDefined1,
-    tradeDealerDefined2: item.TradeDealerDefined2,
-    tradeDealerDefined3: item.TradeDealerDefined3,
-    tradeDealerDefined4: item.TradeDealerDefined4,
-    tradeDealerDefined5: item.TradeDealerDefined5,
-    tradeDealerDefined6: item.TradeDealerDefined6,
-    tradeDealerDefined7: item.TradeDealerDefined7,
-    tradeDealerDefined8: item.TradeDealerDefined8,
-  };
-
-  const insertDealTradedealerdefinedschema = createInsertSchema(deals);
-  try {
-    parse(insertDealTradedealerdefinedschema, record);
-  } catch (error) {
-    console.log("ERROR!");
-    console.error(v.flatten<typeof insertDealTradedealerdefinedschema>(error));
-  }
-  await db.insert(dealTradedealerdefined).values(record).onConflictDoNothing();
-}
-
-export async function upsertDealTrade2(item) {
-  const record = {
-    fiWipStatusCode: item.FiWipStatusCode,
-    branch: item.Branch,
-    hostItemId: item.HostItemID,
-    trade2Acv: item.Trade2ACV,
-    trade2Color: item.Trade2Color,
-    trade2Gross: item.Trade2Gross,
-    trade2Make: item.Trade2Make,
-    trade2Mileage: item.Trade2Mileage,
-    trade2Model: item.Trade2Model,
-    trade2ModelName: item.Trade2ModelName,
-    trade2ModelNo: item.Trade2ModelNo,
-    trade2ModelType: item.Trade2ModelType,
-    trade2Over: item.Trade2Over,
-    trade2PayOff: item.Trade2PayOff,
-    trade2Stock: item.Trade2Stock,
-    trade2Style: item.Trade2Style,
-    trade2Vin: item.Trade2VIN,
-    trade2Year: item.Trade2Year,
-  };
-
-  const insertDealTrade2schema = createInsertSchema(deals);
-  try {
-    parse(insertDealTrade2schema, record);
-  } catch (error) {
-    console.log("ERROR!");
-    console.error(v.flatten<typeof insertDealTrade2schema>(error));
-  }
-  await db.insert(dealTrade2).values(record).onConflictDoNothing();
-}
-
-export async function upsertDealTrade1(item) {
-  const record = {
-    fiWipStatusCode: item.FiWipStatusCode,
-    branch: item.Branch,
-    hostItemId: item.HostItemID,
-    trade1Model: item.Trade1Model,
-    trade1ModelName: item.Trade1ModelName,
-    trade1ModelNo: item.Trade1ModelNo,
-    trade1ModelType: item.Trade1ModelType,
-    trade1Over: item.Trade1Over,
-    trade1PayOff: item.Trade1PayOff,
-    trade1Stock: item.Trade1Stock,
-    trade1Style: item.Trade1Style,
-    trade1Vin: item.Trade1VIN,
-    trade1Year: item.Trade1Year,
-    trade1Acv: item.Trade1ACV,
-    trade1Color: item.Trade1Color,
-    trade1Gross: item.Trade1Gross,
-    trade1Make: item.Trade1Make,
-    trade1MakeName: item.Trade1MakeName,
-    trade1Mileage: item.Trade1Mileage,
-  };
-  const insertDealTrade1schema = createInsertSchema(deals);
-  try {
-    parse(insertDealTrade1schema, record);
-  } catch (error) {
-    console.log("ERROR!");
-    console.error(v.flatten<typeof insertDealTrade1schema>(error));
-  }
-  await db.insert(dealTrade1).values(record).onConflictDoNothing();
-}
-
-export async function upsertDealFiaux(item) {
-  const record = {
-    fiWipStatusCode: item.FiWipStatusCode,
-    branch: item.Branch,
-    hostItemId: item.HostItemID,
-    fiAux1: item.FiAux1,
-    fiAux40: item.FiAux40,
-    fiAux41: item.FiAux41,
-    fiAux42: item.FiAux42,
-    fiAux43: item.FiAux43,
-    fiAux44: item.FiAux44,
-    fiAux45: item.FiAux45,
-    fiAux46: item.FiAux46,
-    fiAux47: item.FiAux47,
-    fiAux48: item.FiAux48,
-    fiAux49: item.FiAux49,
-    fiAux5: item.FiAux5,
-    fiAux50: item.FiAux50,
-    fiAux6: item.FiAux6,
-    fiAux7: item.FiAux7,
-    fiAux8: item.FiAux8,
-    fiAux9: item.FiAux9,
-    fiAux10: item.FiAux10,
-    fiAux11: item.FiAux11,
-    fiAux12: item.FiAux12,
-    fiAux13: item.FiAux13,
-    fiAux14: item.FiAux14,
-  };
-
-  const insertDealFiAuxschema = createInsertSchema(deals);
-  try {
-    parse(insertDealFiAuxschema, record);
-  } catch (error) {
-    console.log("ERROR!");
-    console.error(v.flatten<typeof insertDealFiAuxschema>(error));
-  }
-  await db.insert(dealFiaux).values(record).onConflictDoNothing();
-}
 
 const dateFields = [
   "ContractDate",
@@ -223,31 +78,94 @@ function transformInsert<T extends { [key: string]: any }>(data: {
   return transformedData as T;
 }
 
+type InsertDealInitialfee = typeof dealInitialfee.$inferInsert;
+export async function upsertDealInitialfee(item: InsertDealInitialfee) {
+  const validatedItem = transformInsert<InsertDealInitialfee>(item);
+
+  console.log(validatedItem);
+  await db
+    .insert(dealInitialfee)
+    .values(validatedItem)
+    .onConflictDoUpdate({
+      target: [deals.FiWipStatusCode, deals.Branch, deals.HostItemID],
+      set: { ...validatedItem },
+    });
+}
+
+type InsertDealTradeDealerDefined = typeof dealTradedealerdefined.$inferInsert;
+export async function upsertDealTradedealerdefined(
+  item: InsertDealTradeDealerDefined,
+) {
+  const validatedItem = transformInsert<InsertDealTradeDealerDefined>(item);
+
+  console.log(validatedItem);
+  await db
+    .insert(dealTradedealerdefined)
+    .values(validatedItem)
+    .onConflictDoUpdate({
+      target: [deals.FiWipStatusCode, deals.Branch, deals.HostItemID],
+      set: { ...validatedItem },
+    });
+}
+
+type InsertDealTrade1 = typeof dealTrade1.$inferInsert;
+export async function upsertDealTrade1(item: InsertDealTrade1) {
+  const validatedItem = transformInsert<InsertDealTrade1>(item);
+
+  console.log(validatedItem);
+  await db
+    .insert(dealTrade1)
+    .values(validatedItem)
+    .onConflictDoUpdate({
+      target: [deals.FiWipStatusCode, deals.Branch, deals.HostItemID],
+      set: { ...validatedItem },
+    });
+}
+type InsertDealTrade2 = typeof dealTrade2.$inferInsert;
+export async function upsertDealTrade2(item: InsertDealTrade2) {
+  const validatedItem = transformInsert<InsertDealTrade2>(item);
+
+  console.log(validatedItem);
+  await db
+    .insert(dealTrade2)
+    .values(validatedItem)
+    .onConflictDoUpdate({
+      target: [deals.FiWipStatusCode, deals.Branch, deals.HostItemID],
+      set: { ...validatedItem },
+    });
+}
+
+type InsertDealFiAux = typeof dealFiaux.$inferInsert;
+export async function upsertDealFiaux(item: InsertDealFiAux) {
+  const validatedItem = transformInsert<InsertDealFiAux>(item);
+
+  console.log(validatedItem);
+  await db
+    .insert(dealFiaux)
+    .values(validatedItem)
+    .onConflictDoUpdate({
+      target: [deals.FiWipStatusCode, deals.Branch, deals.HostItemID],
+      set: { ...validatedItem },
+    });
+}
+
 type InsertDeals = typeof deals.$inferInsert;
 export async function upsertDeals(item: InsertDeals) {
   const validatedItem = transformInsert<InsertDeals>(item);
-  console.log(validatedItem.VIN);
-
-  // Do not update timestamp
-  const { Timestamp, ...restValidatedItem } = validatedItem;
 
   await db
     .insert(deals)
     .values(validatedItem)
     .onConflictDoUpdate({
       target: [deals.FiWipStatusCode, deals.Branch, deals.HostItemID],
-      set: { ...restValidatedItem },
+      set: { ...validatedItem },
     });
-  //TODO: Update the rest below to do UPDATE!
-  //
-  // await upsertDealInitialfee(item);
-  // await upsertDealTrade1(item);
-  // await upsertDealTrade2(item);
-  // await upsertDealTradedealerdefined(item);
-  // await upsertDealFiaux(item);
+  await upsertDealInitialfee(item);
+  await upsertDealTrade1(item);
+  await upsertDealTrade2(item);
+  await upsertDealTradedealerdefined(item);
+  await upsertDealFiaux(item);
 }
-
-const insertVehicleschema = createInsertSchema(vehicles);
 
 type InsertVehicles = typeof vehicles.$inferInsert;
 export async function upsertVehicle(item: InsertVehicles) {
@@ -263,63 +181,81 @@ export async function upsertVehicle(item: InsertVehicles) {
     });
 }
 
-const insertGLJEschema = createInsertSchema(GLJE);
-export async function upsertGLJEDetail(item) {
-  const record = {
-    hostItemId: item.HostItemID ? item.HostItemID.toString() : null,
-    accountingDate: item.AccountingDate,
-    accountNumber: item.AccountNumber ? item.AccountNumber.toString() : null,
-    accountNumberRight: item.AccountNumberRight
-      ? item.AccountNumberRight.toString()
-      : null,
-    companyID: item.CompanyID ? item.CompanyID.toString() : null,
-    companyIDRight: item.CompanyIDRight ? item.CompanyIDRight.toString() : null,
-    control: item.control ? item.control.toString() : null,
-    controlRight: item.controlRight
-      ? item.controlcontrolRight.toString()
-      : null,
-    controlType: item.ControlType,
-    control2: item.Control2 ? item.Control2.toString() : null, // Convert number to string
-    control2Right: item.Control2Right ? item.Control2Right.toString() : null, // Convert number to string
-    controlType2: item.ControlType2,
-    currentMonth: item.CurrentMonth,
-    detailDescription: item.DetailDescription
-      ? item.DetailDescription.toString()
-      : null, // Convert number to string
-    distillControlType: item.DistillControlType,
-    distillControlType2: item.DistillControlType2,
-    errorLevel: item.ErrorLevel,
-    errorMessage: item.ErrorMessage,
-    journalID: item.JournalID,
-    journalIDRight: item.JournalIDRight,
-    postingAmount: item.PostingAmount ? item.PostingAmount.toString() : null,
-    postingSequence: item.PostingSequence,
-    postingTime: item.PostingTime,
-    prodNo: item.ProdNo,
-    prodNo2: item.ProdNo2,
-    prodNoRight: item.ProdNoRight,
-    prodNo2Right: item.ProdNo2Right,
-    prodType: item.ProdType,
-    prodType2: item.ProdType2,
-    refer: item.Refer ? item.Refer.toString() : null,
-    referRight: item.ReferRight ? item.ReferRight.toString() : null,
-    scheduleNumber: item.ScheduleNumber,
-    statCount: item.StatCount,
-  };
-
-  try {
-    parse(insertGLJEschema, record);
-  } catch (error) {
-    console.log("ERROR!");
-    console.error(v.flatten<typeof insertGLJEschema>(error));
-  }
+type InsertCustomers = typeof customers.$inferInsert;
+export async function upsertCustomers(item: InsertCustomers) {
+  const validatedItem = transformInsert<InsertCustomers>(item);
 
   await db
+    .insert(customers)
+    .values(validatedItem)
+    .onConflictDoUpdate({
+      target: [customers.hostItemId, customers.custNo],
+      set: { ...validatedItem },
+    });
+}
+
+const insertGLJEschema = createInsertSchema(GLJE);
+
+type InsertGLJE = typeof GLJE.$inferInsert;
+export async function upsertGLJEDetail(item: InsertGLJE) {
+  const validatedItem = transformInsert<InsertGLJE>(item);
+  // const record = {
+  //   hostItemId: item.HostItemID ? item.HostItemID.toString() : null,
+  //   accountingDate: item.AccountingDate,
+  //   accountNumber: item.AccountNumber ? item.AccountNumber.toString() : null,
+  //   accountNumberRight: item.AccountNumberRight
+  //     ? item.AccountNumberRight.toString()
+  //     : null,
+  //   companyID: item.CompanyID ? item.CompanyID.toString() : null,
+  //   companyIDRight: item.CompanyIDRight ? item.CompanyIDRight.toString() : null,
+  //   control: item.control ? item.control.toString() : null,
+  //   controlRight: item.controlRight
+  //     ? item.controlcontrolRight.toString()
+  //     : null,
+  //   controlType: item.ControlType,
+  //   control2: item.Control2 ? item.Control2.toString() : null, // Convert number to string
+  //   control2Right: item.Control2Right ? item.Control2Right.toString() : null, // Convert number to string
+  //   controlType2: item.ControlType2,
+  //   currentMonth: item.CurrentMonth,
+  //   detailDescription: item.DetailDescription
+  //     ? item.DetailDescription.toString()
+  //     : null, // Convert number to string
+  //   distillControlType: item.DistillControlType,
+  //   distillControlType2: item.DistillControlType2,
+  //   errorLevel: item.ErrorLevel,
+  //   errorMessage: item.ErrorMessage,
+  //   journalID: item.JournalID,
+  //   journalIDRight: item.JournalIDRight,
+  //   postingAmount: item.PostingAmount ? item.PostingAmount.toString() : null,
+  //   postingSequence: item.PostingSequence,
+  //   postingTime: item.PostingTime,
+  //   prodNo: item.ProdNo,
+  //   prodNo2: item.ProdNo2,
+  //   prodNoRight: item.ProdNoRight,
+  //   prodNo2Right: item.ProdNo2Right,
+  //   prodType: item.ProdType,
+  //   prodType2: item.ProdType2,
+  //   refer: item.Refer ? item.Refer.toString() : null,
+  //   referRight: item.ReferRight ? item.ReferRight.toString() : null,
+  //   scheduleNumber: item.ScheduleNumber,
+  //   statCount: item.StatCount,
+  // };
+
+  // try {
+  //   parse(insertGLJEschema, record);
+  // } catch (error) {
+  //   console.log("ERROR!");
+  //   console.error(v.flatten<typeof insertGLJEschema>(error));
+  // }
+
+  console.log(validatedItem);
+  await db
     .insert(GLJE)
-    .values(record)
+    .values(validatedItem)
     .onConflictDoUpdate({
       target: [GLJE.hostItemId, GLJE.accountingDate, GLJE.accountNumber],
-      set: record,
+      set: { ...validatedItem },
+      // set: record,
     });
 }
 

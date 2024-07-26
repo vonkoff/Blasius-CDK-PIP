@@ -1,10 +1,6 @@
 import { Hono } from "hono";
 import { fetchData } from "./helpers/retrieve_xml";
-import { Mutex, tryAcquire, E_ALREADY_LOCKED, withTimeout } from "async-mutex";
 import "dotenv/config";
-
-const mutex = new Mutex();
-const mutexWithTimeout = withTimeout(new Mutex(), 3000);
 
 const PORT = process.env.PORT;
 
@@ -71,11 +67,13 @@ const formatDate = (date: Date): string => {
   return `${month}/${day}/${year}`;
 };
 
+// Use with formateDate
 const endOfPreviousDay = new Date();
 endOfPreviousDay.setUTCHours(23, 59, 59, 999); // Set to end of previous day
 endOfPreviousDay.setUTCDate(endOfPreviousDay.getUTCDate() - 1);
 
-let shouldRunContinuously = true;
+// For Delta Date to gather from today
+const endTimeStamp = formatDate(new Date());
 
 const app = new Hono();
 
@@ -90,17 +88,14 @@ app.post("/cdk/dealers-salesclosed", async (c) => {
   const results = [];
 
   const additionalParams = {
-    qparamStartDate: "05/20/2024",
-    qparamEndDate: "05/23/2024",
-    // qparamStartDate: startTimestamp,
-    // qparamEndDate: endTimeStamp,
+    deltaDate: endTimeStamp,
   };
 
   for (const dealerId of LBCCDealer) {
     const requestParams: RequestParams = {
       dealerId: dealerId,
       urlParam: "fisales-closed",
-      queryId: "dywFISC_DateRange",
+      queryId: "dywFISC_Delta",
       additionalParams,
     };
     try {
@@ -124,46 +119,31 @@ app.post("/cdk/dealers-vehicles", async (c) => {
   const results: Array<{ dealerId: string; status: string; message?: string }> =
     [];
 
-  const endTimeStamp = formatDate(new Date());
   const additionalParams = {
     deltaDate: endTimeStamp,
     qparamInvCompany: 1,
   };
-  console.log(endTimeStamp);
 
-  await tryAcquire(mutexWithTimeout)
-    .runExclusive(async () => {
-      for await (const dealerId of LBCCDealer) {
-        const requestParams: RequestParams = {
-          dealerId: dealerId,
-          urlParam: "inventoryvehicleext",
-          // queryId: "dywINVEH_Bulk",
-          queryId: "dywIVEH_Delta",
-          additionalParams,
-        };
-        try {
-          await handleCdkRequestForDealer(requestParams);
-          results.push({ dealerId: dealerId, status: "success" });
-        } catch (error) {
-          console.error(`Error processing dealer ${dealerId}:`, error);
-          results.push({
-            dealerId: dealerId,
-            status: "error",
-            message: (error as Error).message,
-          });
-        }
-      }
-    })
-    .catch((err) => {
-      if (err === E_ALREADY_LOCKED) {
-        console.error(`Mutex locked`);
-        results.push({
-          dealerId: "whatever",
-          status: "error",
-          message: (err as Error).message,
-        });
-      }
-    });
+  for await (const dealerId of LBCCDealer) {
+    const requestParams: RequestParams = {
+      dealerId: dealerId,
+      urlParam: "inventoryvehicleext",
+      // queryId: "dywINVEH_Bulk",
+      queryId: "dywIVEH_Delta",
+      additionalParams,
+    };
+    try {
+      await handleCdkRequestForDealer(requestParams);
+      results.push({ dealerId: dealerId, status: "success" });
+    } catch (error) {
+      console.error(`Error processing dealer ${dealerId}:`, error);
+      results.push({
+        dealerId: dealerId,
+        status: "error",
+        message: (error as Error).message,
+      });
+    }
+  }
 
   return c.json(results);
 });
@@ -172,8 +152,7 @@ app.post("/cdk/dealers-gljedetail", async (c) => {
   const results = [];
 
   const additionalParams = {
-    qparamStartDate: "12/01/2023",
-    qparamEndDate: "01/01/2024",
+    deltaDate: endTimeStamp,
     qparamCompany: 1,
   };
 
@@ -181,10 +160,7 @@ app.post("/cdk/dealers-gljedetail", async (c) => {
     const requestParams: RequestParams = {
       dealerId: dealerId,
       urlParam: "gl-je-detail",
-      queryId: "dywACCTGL_JE_DateRange_D",
-      // urlParam: "gl-coa",
-      // queryId: "dywACCTGL_JE_Delta_D",
-      // queryId: "dywACCTGL_COA_Bulk",
+      queryId: "dywACCTGL_JE_Delta_D",
       additionalParams,
     };
     try {
@@ -232,6 +208,37 @@ app.post("/cdk/dealers-coa", async (c) => {
     }
     break;
   }
+  return c.json(results);
+});
+
+app.post("/cdk/dealers-customers", async (c) => {
+  const results = [];
+
+  const additionalParams = {
+    deltaDate: endTimeStamp,
+  };
+
+  for (const dealerId of LBCCDealer) {
+    const requestParams: RequestParams = {
+      dealerId: dealerId,
+      urlParam: "customer",
+      queryId: "dywCUST_Delta",
+      additionalParams,
+    };
+    try {
+      await handleCdkRequestForDealer(requestParams);
+      results.push({ dealerId: dealerId, status: "success" });
+    } catch (error) {
+      console.error(`Error processing dealer ${dealerId}:`, error);
+      results.push({
+        dealerId: dealerId,
+        status: "error",
+        //@ts-ignore
+        message: error.message,
+      });
+    }
+  }
+
   return c.json(results);
 });
 

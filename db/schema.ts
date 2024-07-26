@@ -111,13 +111,13 @@ export const dealInitialfee = pgTable(
   {
     FiWipStatusCode: varchar("FiWipStatusCode", { length: 2 }).notNull(),
     Branch: varchar("Branch", { length: 20 }).notNull(),
-    HostItemId: varchar("HostItemID", { length: 20 }).notNull(),
+    HostItemID: varchar("HostItemID", { length: 20 }).notNull(),
     InitialFee4ProfitType: varchar("InitialFee4ProfitType", { length: 1 }),
   },
   (table) => {
     return {
       DealInitialfeePkey: primaryKey({
-        columns: [table.FiWipStatusCode, table.Branch, table.HostItemId],
+        columns: [table.FiWipStatusCode, table.Branch, table.HostItemID],
         name: "deal_initialfee_pkey",
       }),
     };
@@ -129,7 +129,7 @@ export const dealTradedealerdefined = pgTable(
   {
     FiWipStatusCode: varchar("FiWipStatusCode", { length: 2 }).notNull(),
     Branch: varchar("Branch", { length: 20 }).notNull(),
-    HostItemId: varchar("HostItemID", { length: 20 }).notNull(),
+    HostItemID: varchar("HostItemID", { length: 20 }).notNull(),
     TradeDealerDefined1: varchar("TradeDealerDefined1", { length: 17 }),
     TradeDealerDefined2: varchar("TradeDealerDefined2", { length: 17 }),
     TradeDealerDefined3: varchar("TradeDealerDefined3", { length: 17 }),
@@ -142,7 +142,7 @@ export const dealTradedealerdefined = pgTable(
   (table) => {
     return {
       DealTradedealerdefinedPkey: primaryKey({
-        columns: [table.FiWipStatusCode, table.Branch, table.HostItemId],
+        columns: [table.FiWipStatusCode, table.Branch, table.HostItemID],
         name: "deal_tradedealerdefined_pkey",
       }),
     };
@@ -154,7 +154,7 @@ export const dealTrade2 = pgTable(
   {
     FiWipStatusCode: varchar("FiWipStatusCode", { length: 2 }).notNull(),
     Branch: varchar("Branch", { length: 20 }).notNull(),
-    HostItemId: varchar("HostItemID", { length: 20 }).notNull(),
+    HostItemID: varchar("HostItemID", { length: 20 }).notNull(),
     Trade2Acv: varchar("Trade2ACV", { length: 17 }),
     Trade2Color: varchar("Trade2Color", { length: 17 }),
     Trade2Gross: numeric("Trade2Gross", { precision: 10, scale: 2 }),
@@ -174,7 +174,7 @@ export const dealTrade2 = pgTable(
   (table) => {
     return {
       DealTrade2Pkey: primaryKey({
-        columns: [table.FiWipStatusCode, table.Branch, table.HostItemId],
+        columns: [table.FiWipStatusCode, table.Branch, table.HostItemID],
         name: "deal_trade2_pkey",
       }),
     };
@@ -186,7 +186,7 @@ export const dealTrade1 = pgTable(
   {
     FiWipStatusCode: varchar("FiWipStatusCode", { length: 2 }).notNull(),
     Branch: varchar("Branch", { length: 20 }).notNull(),
-    HostItemId: varchar("HostItemID", { length: 20 }).notNull(),
+    HostItemID: varchar("HostItemID", { length: 20 }).notNull(),
     Trade1Model: varchar("Trade1Model", { length: 50 }),
     Trade1ModelName: varchar("Trade1ModelName", { length: 50 }),
     Trade1ModelNo: varchar("Trade1ModelNo", { length: 50 }),
@@ -207,7 +207,7 @@ export const dealTrade1 = pgTable(
   (table) => {
     return {
       DealTrade1Pkey: primaryKey({
-        columns: [table.FiWipStatusCode, table.Branch, table.HostItemId],
+        columns: [table.FiWipStatusCode, table.Branch, table.HostItemID],
         name: "deal_trade1_pkey",
       }),
     };
@@ -219,7 +219,7 @@ export const dealFiaux = pgTable(
   {
     FiWipStatusCode: varchar("FiWipStatusCode", { length: 2 }).notNull(),
     Branch: varchar("Branch", { length: 20 }).notNull(),
-    HostItemId: varchar("HostItemID", { length: 20 }).notNull(),
+    HostItemID: varchar("HostItemID", { length: 20 }).notNull(),
     FiAux1: varchar("FiAux1", { length: 50 }),
     FiAux40: integer("FiAux40"),
     FiAux41: integer("FiAux41"),
@@ -246,7 +246,7 @@ export const dealFiaux = pgTable(
   (table) => {
     return {
       DealFiauxPkey: primaryKey({
-        columns: [table.FiWipStatusCode, table.Branch, table.HostItemId],
+        columns: [table.FiWipStatusCode, table.Branch, table.HostItemID],
         name: "deal_fiaux_pkey",
       }),
     };

@@ -11,6 +11,7 @@ import {
   upsertVehicle,
   upsertGLJEDetail,
   upsertCOA,
+  upsertCustomers,
 } from "../helpers/drizzle_tables";
 
 // Custom coerce function to convert empty strings to null
@@ -56,13 +57,20 @@ const COA = {
   base: "GLCOA",
 };
 
+const customers = {
+  extract: "Customers",
+  base: "Customer",
+};
+
 const paths: Path = {
   dywFISC_DateRange: deals,
   dywFISC_Delta: deals,
   dywINVEH_Bulk: vehicles,
   dywIVEH_Delta: vehicles,
+  dywACCTGL_JE_Delta_D: GLJE,
   dywACCTGL_JE_DateRange_D: GLJE,
   dywACCTGL_COA_Bulk: COA,
+  dywCUST_Delta: customers,
 };
 
 type UpsertFunction = (data: any, queryId: string) => Promise<void>;
@@ -74,6 +82,7 @@ const upsertFunctionMap: Record<string, UpsertFunction> = {
   dywACCTGL_JE_Delta_D: upsertGLJEDetail,
   dywACCTGL_JE_DateRange_D: upsertGLJEDetail,
   dywACCTGL_COA_Bulk: upsertCOA,
+  dywCUST_Delta: upsertCustomers,
 };
 
 // Main function to process and save each deal
@@ -97,6 +106,9 @@ export async function saveXmlToDb(xmlData: string, queryId: string) {
       console.error("Error parsing XML data:", error);
     }
     //! Remove later above when done understanding json results
+    const tata = paths[queryId];
+    console.log(queryId);
+    console.log(tata);
     const { extract, base } = paths[queryId];
     const jsonData = result[extract]?.[base];
 
