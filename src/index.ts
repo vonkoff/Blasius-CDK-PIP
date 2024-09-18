@@ -87,15 +87,21 @@ async function handleCdkRequestForDealer(params: RequestParams) {
 app.post("/cdk/dealers-salesclosed", async (c) => {
   const results = [];
 
+  // const additionalParams = {
+  //   deltaDate: endTimeStamp,
+  // };
+
   const additionalParams = {
-    deltaDate: endTimeStamp,
+    qparamStartDate: formatDate(endOfPreviousDay),
+    qparamEndDate: formatDate(new Date()),
   };
 
   for (const dealerId of LBCCDealer) {
     const requestParams: RequestParams = {
       dealerId: dealerId,
       urlParam: "fisales-closed",
-      queryId: "dywFISC_Delta",
+      // queryId: "dywFISC_Delta",
+      queryId: "dywFISC_DateRange",
       additionalParams,
     };
     try {

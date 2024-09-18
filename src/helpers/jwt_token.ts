@@ -1,6 +1,7 @@
 import "dotenv/config";
 
 export async function getJwtToken() {
+  console.log(process.env.JWT_TOKEN_URL_PROD);
   const url = process.env.JWT_TOKEN_URL_PROD!;
   const credentials = `${process.env.CLIENT_ID_PROD!}:${process.env.CLIENT_SECRET_PROD!}`;
   const encodedCredentials = Buffer.from(credentials).toString("base64");
