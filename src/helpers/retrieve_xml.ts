@@ -33,7 +33,7 @@ export async function fetchData(
     Accept: "application/json",
   };
 
-  console.log(headers);
+  console.log("headers:\n", headers);
 
   try {
     const response = await fetch(apiURL, {

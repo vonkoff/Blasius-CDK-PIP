@@ -248,6 +248,38 @@ app.post("/cdk/dealers-customers", async (c) => {
   return c.json(results);
 });
 
+app.post("/cdk/dealers-partsales", async (c) => {
+  const results = [];
+
+  const additionalParams = {
+    qparamStartDate: formatDate(endOfPreviousDay),
+    qparamEndDate: formatDate(new Date()),
+  };
+
+  for (const dealerId of LBCCDealer) {
+    const requestParams: RequestParams = {
+      dealerId: dealerId,
+      urlParam: "partssales-closed",
+      queryId: "dywPSC_DateRange_H",
+      additionalParams,
+    };
+    try {
+      await handleCdkRequestForDealer(requestParams);
+      results.push({ dealerId: dealerId, status: "success" });
+    } catch (error) {
+      console.error(`Error processing dealer ${dealerId}:`, error);
+      results.push({
+        dealerId: dealerId,
+        status: "error",
+        //@ts-ignore
+        message: error.message,
+      });
+    }
+  }
+
+  return c.json(results);
+});
+
 export default {
   port: PORT,
   fetch: app.fetch,
